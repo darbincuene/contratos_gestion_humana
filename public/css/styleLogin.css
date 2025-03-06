@@ -1,0 +1,103 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem; 
+  }
+
+  /* Estilo general del contenedor */
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 40px auto;
+  }
+  
+  /* Estilo del formulario */
+  .form_wrapper {
+    padding: 30px;
+    border-radius: 10px;
+    background-color:rgba(255, 255, 255, 0.493);
+  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  /* Texto de bienvenida */
+  .form_details {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: rgb(0, 0, 0);
+  }
+  
+  /* Estilos de los inputs */
+  .input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  /* Botón de inicio de sesión */
+  .btn {
+    width: 100%;
+    padding: 10px;
+    background: #0f3b53e8;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .btn:hover {
+    color: #fff;
+    background: #0f3b53e8;
+  }
+  
+  /* Enlace para recuperar contraseña */
+  a {
+    display: block;
+    margin-top: 10px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Mensajes de error */
+  .alert-danger {
+    color: #ff4d4d;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo para el texto de registro */
+  .switch {
+    display: block;
+    margin-top: 10px;
+    color: white;
+    font-size: 0.9rem;
+  }
+  
+  /* Adaptabilidad para móviles */
+  @media (max-width: 480px) {
+    .form_wrapper {
+      padding: 20px;
+    }
+    .form_details {
+      font-size: 1.3rem;
+    }
+    .btn {
+      font-size: 1rem;
+    }
+  }
