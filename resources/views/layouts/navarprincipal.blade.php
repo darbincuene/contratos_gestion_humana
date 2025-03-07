@@ -14,8 +14,8 @@
         <img class="verticalAmarillo"src="{{ asset('storage/logos/horizontal_full_color.png') }}" alt="verticalAmarillo" />
     </div>
     <div class="titulosNav">
-        <h3>Gestion de Archivos</h3>
-        <p>Aplicativo para gestionar archivos</p>
+        <h3>Historial Laboral</h3>
+        <p>Aplicativo para gestionar el historial laboral</p>
         
     </div>
 </header>

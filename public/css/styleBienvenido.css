@@ -1,0 +1,53 @@
+
+/* Contenedor principal */
+.contenedorB {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Contenedor de botones */
+.botones-container {
+    display: flex;
+    justify-content: center;
+    gap: 150px; /* Espacio entre los botones */
+    margin: 200px auto;
+}
+
+/* Estilos para los botones */
+.btn {
+    width: 250px; /* Ancho fijo para los botones */
+    padding: 20px; /* Aumenta el padding para más espacio */
+    font-size: 16px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espacio entre la imagen y el texto */
+    background-color: #ffffff;
+    color: #1B5DA4;
+    border: 2px solid #1B5DA4 /* Borde para mejor visibilidad */
+    cursor pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #1B5DA4;
+    color: #ffffff;
+}
+
+/* Estilos para las imágenes */
+.btn img {
+    width: 50px; /* Ajusta el tamaño de la imagen */
+    height: 50px;
+}
+
+/* Estilos para el texto debajo de la imagen */
+.btn span {
+    font-size: 16px; /* Tamaño del texto */
+    text-align: center;
+}
