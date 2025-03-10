@@ -16,30 +16,32 @@
 </head>
 @extends('layouts.navarprincipal')
 @section('content')
-    <body class="formulario">
-        <div class="container">
-            <!-- Contenedor de formularios -->
-            <div class="form_wrapper">
-                <!-- Formulario de inicio de sesión -->
-                <form action="{{ route('login.usuarios') }}" method="POST" class="form_front">
-                    @csrf
-                    <div class="form_details">BIENVENIDO DE NUEVO</div>
-                    <input type="email" name="email" class="input" placeholder="Correo Electrónico" required>
-                    @error('email')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                    <input type="password" name="password" class="input" placeholder="Contraseña" required>
-                    @error('password')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                    <button class="btn" type="submit">Iniciar Sesión</button>
-                    
-                {{-- <a href="{{ route('password.request') }}">¿Has olvidado tu \contraseña?</a> --}}
-
-                   
-                </form>
-            </div>
+<body class="formulario">
+    <div class="container">
+        <!-- Contenedor de formularios -->
+        <div class="form_wrapper">
+            <!-- Formulario de inicio de sesión -->
+            <form action="{{ route('login.usuarios') }}" method="POST" class="form_front">
+                @csrf
+                <!-- Ícono de bienvenida -->
+                <div class="icono-bienvenida">
+                    <img src="{{ asset('imagenes/usuario.png') }}" alt="Ícono de bienvenida" class="welcome-icon">
+                </div>
+                <div class="form_details">BIENVENIDO DE NUEVO</div>
+                <input type="email" name="email" class="input" placeholder="Correo Electrónico" required>
+                @error('email')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                <input type="password" name="password" class="input" placeholder="Contraseña" required>
+                @error('password')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                <button class="btn" type="submit">Iniciar Sesión</button>
+                
+                {{-- <a href="{{ route('password.request') }}">¿Has olvidado tu contraseña?</a> --}}
+            </form>
         </div>
-    </body>
+    </div>
+</body>
 @endsection
 </html>

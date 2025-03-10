@@ -22,6 +22,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     width: 100%;
     max-width: 400px;
+    height: 420px;
     text-align: center;
   }
   
@@ -41,13 +42,14 @@
     border: none;
     border-radius: 5px;
     font-size: 1rem;
+    background-color: #032840;
   }
   
   /* Botón de inicio de sesión */
   .btn {
-    width: 100%;
+    width: 50%;
     padding: 10px;
-    background: #0f3b53e8;
+    background: #032840;;
     border: none;
     color: white;
     font-size: 1.2rem;
@@ -55,11 +57,12 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
+    margin: 20px auto;
   }
   
   .btn:hover {
     color: #fff;
-    background: #0f3b53e8;
+    background: #032840;;
   }
   
   /* Enlace para recuperar contraseña */
@@ -88,7 +91,20 @@
     color: white;
     font-size: 0.9rem;
   }
-  
+
+  /* Estilos para el ícono de bienvenida */
+  .icono-bienvenida {
+    text-align: center; /* Centra la imagen horizontalmente */
+    margin-bottom: 20px; /* Espacio debajo de la imagen */
+  }
+
+  .welcome-icon {
+    width: 80px; /* Ajusta el tamaño de la imagen */
+    height: 80px;
+    border-radius: 50%; /* Opcional: Hace la imagen circular */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: Añade una sombra */
+  }
+    
   /* Adaptabilidad para móviles */
   @media (max-width: 480px) {
     .form_wrapper {

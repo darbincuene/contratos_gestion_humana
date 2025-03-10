@@ -1,0 +1,57 @@
+
+/* Contenedor del menú */
+.contenedor-menu {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin: 30px auto;
+}
+
+/* Título del menú */
+.menu-titulo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Opciones del menú */
+.menu-opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Estilos para los botones del menú */
+.botones-menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: none; /* Elimina el borde por defecto del botón */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: left; /* Alinea el texto a la izquierda */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+}
+
+.botones-menu:hover {
+    background-color: #e9ecef;
+}
+
+/* Estilos para las imágenes */
+.menu-icon {
+    width: 24px; /* Ajusta el tamaño de la imagen */
+    height: 24px;
+}
+
+/* Estilos para el texto */
+.menu-text {
+    font-size: 16px;
+    color: #333;
+}
