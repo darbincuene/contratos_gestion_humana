@@ -1,0 +1,296 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0; /* Elimina el margen por defecto del body */
+    padding: 0; /* Elimina el padding por defecto del body */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+}
+
+/* Contenedor del menú */
+.SubMenu-contenedor {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin: 30px auto;
+}
+
+/* Título del menú */
+.subMenu-titulo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Opciones del menú */
+.subMenu-opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Estilos base para los botones del submenú */
+.boton-historiasLaborales {
+    background-color: #032840;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.boton-historiasLaborales:hover {
+    background-color: #ffffff;
+}
+
+/* Ocultar el texto cuando se hace hover */
+.boton-historiasLaborales:hover .menu-texto {
+    opacity: 0;
+}
+
+.menu-texto {
+    transition: opacity 0.3s ease;
+    font-size: 16px;
+}
+
+/* Icono principal (documento, visible desde el principio) */
+.document {
+    font-size: 24px;
+    color: #032840; /* Color del documento */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Visible inicialmente */
+    transition: opacity 0.3s ease;
+}
+
+/* Icono de animación (lupa, oculto inicialmente) */
+.search-icon {
+    font-size: 16px;
+    color: #032840; /* Color de la lupa */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3s ease;
+}
+
+/* hover state for the button */
+.boton-historiasLaborales:hover .search-icon,
+.boton-historiasLaborales:hover .document {
+    opacity: 1; /* Oculta el ícono de documento */
+}
+
+.boton-historiasLaborales:hover .search-icon {
+    animation: searchAnimation 3s ease-in-out infinite; /* Animación de búsqueda */
+}
+
+/* Animación para el ícono de lupa */
+@keyframes searchAnimation {
+    0% {
+        transform: translate(-50%, -50%) scale(1); /* Tamaño original */
+        color: #f4f4f4; /* Color inicial */
+    }
+    25% {
+        transform: translate(-50%, -50%) translateX(20px) scale(1.2); /* Mueve a la derecha y aumenta de tamaño */
+        color: #032840; /* Cambia de color */
+    }
+    50% {
+        transform: translate(-50%, -50%) translateX(0) scale(1); /* Vuelve al centro y tamaño original */
+        color: #f4f4f4; /* Vuelve al color inicial */
+    }
+    75% {
+        transform: translate(-50%, -50%) translateX(-20px) scale(1.2); /* Mueve a la izquierda y aumenta de tamaño */
+        color: #032840; /* Cambia de color */
+    }
+    100% {
+        transform: translate(-50%, -50%) translateX(0) scale(1); /* Vuelve al centro y tamaño original */
+        color: #f4f4f4; /* Vuelve al color inicial */
+    }
+}
+
+
+/* Estilos base para los botones del submenú */
+.botones-carga {
+    background-color: #032840;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.botones-carga:hover {
+    background-color: #ffffff;
+}
+
+/* Ocultar el texto cuando se hace hover */
+.botones-carga:hover .menu-texto {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Icono principal (documento, visible desde el principio) */
+.document {
+    font-size: 24px;
+    color: #032840; /* Color del documento */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Visible inicialmente */
+    transition: opacity 0.3s ease;
+}
+
+/* Icono de animación (flecha hacia arriba, oculto inicialmente) */
+.upload-icon {
+    font-size: 16px;
+    color: #032840; /* Color de la flecha */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3s ease;
+}
+
+/* hover state for the button */
+.botones-carga:hover .document {
+    opacity: 1; /* Oculta el ícono de documento */
+}
+
+.botones-carga:hover .upload-icon {
+    opacity: 1; /* Muestra el ícono de flecha hacia arriba */
+    animation: uploadAnimation 1s ease-in-out infinite; /* Animación de subida */
+}
+
+/* Animación para el ícono de flecha hacia arriba */
+@keyframes uploadAnimation {
+    0% {
+        top: 100%; /* Inicia desde arriba */
+        color: #032840; /* Color inicial de la flecha */
+    }
+    30% {
+        top: 50%; /* Llega al centro de la nube */
+        color: #ffffff; /* Cambia a color blanco */
+    }
+    30% {
+        top: 50%; /* Se detiene en el centro */
+        color: #ffffff; /* Mantiene el color blanco */
+    }
+    80% {
+        top: -20%; /* Baja hasta el fondo */
+        opacity: 1; /* Aún visible */
+    }
+    100% {
+        top: -20%; /* Desaparece */
+        opacity: 0; /* Desaparece */
+    }
+}
+
+/* Estilos base para los botones del submenú */
+.botones-atras {
+    background-color: #032840;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.botones-atras:hover {
+    background-color: #ffffff;
+}
+
+/* Ocultar el texto cuando se hace hover */
+.botones-atras:hover .menu-texto {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Icono principal (flecha hacia la izquierda, visible desde el principio) */
+.arrow-icon {
+    font-size: 24px;
+    color: #032840; /* Color de la flecha */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Visible inicialmente */
+    transition: opacity 0.3s ease;
+}
+
+/* Icono de animación (flecha de retroceso, oculto inicialmente) */
+.undo-icon {
+    font-size: 20px;
+    color: #032840; /* Color de la flecha de retroceso */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3s ease;
+}
+
+/* hover state for the button */
+.botones-atras:hover .arrow-icon {
+    opacity: 1; /* Muestra el ícono de flecha hacia la izquierda */
+    left: 50%; /* Se desliza al centro */
+    animation: slideLeft 2s ease-in-out forwards infinite; /* Animación de deslizamiento */}
+
+.botones-atras:hover .undo-icon {
+    opacity: 1; /* Muestra el ícono de flecha de retroceso */
+    animation: spinAndDisappear 2s ease-in-out forwards infinite; /* Animación de giro y desaparición */}
+
+/* Animación para el ícono de flecha de retroceso */
+@keyframes spinAndDisappear {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg); /* Posición inicial */
+        opacity: 1; /* Visible */
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg); /* Gira completamente */
+        opacity: 0; /* Desaparece */
+    }
+}
+
+/* Animación para el ícono de flecha hacia la izquierda (deslizarse) */
+@keyframes slideLeft {
+    0% {
+        left: 150%; /* Inicia fuera del botón (derecha) */
+    }
+    100% {
+        left: -20%; /* Se desliza hacia la izquierda */
+    }
+}

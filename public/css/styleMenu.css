@@ -1,0 +1,362 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Contenedor del menú */
+.contenedor-menu {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin: 30px auto;
+}
+
+/* Título del menú */
+.menu_titulo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Opciones del menú */
+.menu-opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+/*Boton de consultar*/
+
+/* Estilos para los botones del menú */
+.botones-menu {
+    background-color: #032840;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.botones-menu:hover {
+    background-color: #ffffff;
+}
+
+/* Ocultar el texto cuando se hace hover */
+.botones-menu:hover .menu-text {
+    opacity: 0;
+}
+
+/*Estilos para el texto*/
+.menu-text {
+    transition: opacity 0.3s ease;
+    font-size: 16px;
+}
+
+/* Icono principal (visible desde el principio) */
+.document {
+    font-size: 24px;
+    color: #032840; /* Color del documento */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3s ease;
+}
+
+/* Icono de animación (oculto inicialmente) */
+.search-icon {
+    font-size: 20px;
+    color: #032840; /* Color de la lupa */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3s ease;
+}
+
+/* Mostrar el icono de animación y animarlo cuando se hace hover */
+.botones-menu:hover .search-icon,
+.botones-menu:hover .document {
+    opacity: 1;
+
+}
+
+.botones-menu:hover .search-icon {
+    animation: readDocument 2s infinite;
+}
+
+@keyframes readDocument {
+    0% {
+        transform: translate(-50%, -50%) translateX(0);
+    }
+    25% {
+        transform: translate(-50%, -50%) translateX(20px);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateX(0);
+    }
+    75% {
+        transform: translate(-50%, -50%) translateX(-20px);
+    }
+    100% {
+        transform: translate(-50%, -50%) translateX(0);
+    }
+}
+
+/*Boton de Historial laboral*/
+
+.botones-historial {
+    background-color: #032840;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.botones-historial:hover {
+    background-color: #ffffff;
+}
+
+/* Ocultar el texto cuando se hace hover */
+.botones-historial:hover .menu-text {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Icono principal (documento, visible desde el principio) */
+.document {
+    font-size: 24px;
+    color: #032840; /* Color del documento */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3s ease, left 0.3s ease;
+}
+
+/* Icono de animación (reloj, oculto inicialmente) */
+.clock-icon {
+    font-size: 20px;
+    color: #032840; /* Color del reloj */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3s ease, left 0.3s ease;
+}
+
+/* Mostrar los íconos y ajustar su posición cuando se hace hover */
+.botones-historial:hover .document {
+    opacity: 1;
+    left: 45%; /* Mueve el documento a la izquierda */
+}
+
+.botones-historial:hover .clock-icon {
+    opacity: 1;
+    left: 55%; /* Mueve el reloj a la derecha */
+    animation: spinClock 2s linear infinite; /* Animación de giro */
+}
+
+/* Animación para el reloj */
+@keyframes spinClock {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+
+/* Estilos base para los botones del menú */
+.boton-descargar {
+    background-color: #032840;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.boton-descargar:hover {
+    background-color: #ffffff;
+}
+
+/* Ocultar el texto cuando se hace hover */
+.boton-descargar:hover .menu-text {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Icono principal (nube, visible desde el principio) */
+.cloud-icon {
+    font-size: 24px;
+    color: #032840; /* Color de la nube */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3s ease;
+}
+
+/* Icono de animación (flecha, oculto inicialmente) */
+.arrow-icon {
+    font-size: 20px;
+    color: #032840; /* Color de la flecha */
+    position: absolute;
+    top: -20px; /* Inicia desde arriba */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+/* Mostrar los íconos y ajustar su posición cuando se hace hover */
+.boton-descargar:hover .cloud-icon {
+    opacity: 1;
+}
+
+.boton-descargar:hover .arrow-icon {
+    opacity: 1;
+    animation: downloadArrow 2s ease-in-out infinite; /* Animación infinita */
+}
+
+/* Animación para la flecha */
+@keyframes downloadArrow {
+    0% {
+        top: -20px; /* Inicia desde arriba */
+        color: #032840; /* Color inicial de la flecha */
+    }
+    30% {
+        top: 35%; /* Llega al centro de la nube */
+        color: #ffffff; /* Cambia a color blanco */
+    }
+    35% {
+        top: 35%; /* Se detiene en el centro */
+        color: #ffffff; /* Mantiene el color blanco */
+    }
+    80% {
+        top: 100%; /* Baja hasta el fondo */
+        opacity: 1; /* Aún visible */
+    }
+    100% {
+        top: 100%; /* Desaparece */
+        opacity: 0; /* Desaparece */
+    }
+}
+
+
+/*Boton de Compartir*/
+
+/* Estilos base para los botones del menú */
+.boton-share {
+    background-color: #032840;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.boton-share:hover {
+    background-color: #ffffff;
+}
+
+/* Ocultar el texto cuando se hace hover */
+.boton-share:hover .menu-text {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Avioncito de papel (visible inicialmente) */
+.paper-plane-icon {
+    height: 25px;
+    width: 25px;
+    color: #032840; /* Color del avioncito */
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Invisible inicialmente */
+    transition: opacity 0.3s ease;
+}
+
+/* hover state for the button */
+.boton-share:hover .paper-plane-icon {
+    animation: flyPaperPlane 5s ease-in-out infinite; /* Animación de vuelo */
+}
+
+/* Animación para el avioncito de papel con vuelo en curvas */
+@keyframes flyPaperPlane {
+    0% {
+        transform: translate(-50%, -50%) scale(1); /* Tamaño original */
+        opacity: 1; /* Visible */
+    }
+    15% {
+        transform: translate(-50%, -50%) translateX(70px) translateY(-30px) scale(0.8); /* Curva hacia arriba */
+    }
+    30% {
+        transform: translate(-50%, -50%) translateX(140px) translateY(30px) scale(0.6); /* Curva hacia abajo */
+    }
+    50% {
+        transform: translate(-50%, -50%) translateX(210px) translateY(-30px) scale(0.4); /* Curva hacia abajo */
+    }
+    70% {
+        transform: translate(-50%, -50%) translateX(280px) translateY(40px) scale(0.3); /* Curva hacia arriba */
+    }
+    85% {
+        transform: translate(-50%, -50%) translateX(350px) translateY(-40px) scale(0.2); /* Curva hacia abajo */
+    }
+    95% {
+        transform: translate(-50%, -50%) translateX(420px) translateY(-40px) scale(0.1); /* Curva hacia arriba */
+    }
+    100% {
+        transform: translate(-50%, -50%) translateX(500px) translateY(10px) scale(1);
+        opacity: 0%;
+    }
+}

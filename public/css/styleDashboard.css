@@ -1,0 +1,97 @@
+
+/* Contenedor principal */
+.contenedorB {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Contenedor de botones */
+.botones-container {
+    display: flex;
+    justify-content: center;
+    gap: 150px; /* Espacio entre los botones */
+    margin: 200px auto;
+}
+
+/* Estilos para los botones */
+.btn {
+    background-color: #ffffff;
+    border: none;
+    color: #032840;
+    padding: 55px 60px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; /* Coloca el ícono y el texto en columna */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    margin: 10px; /* Espacio entre botones */
+    width: 220px; /* Ancho fijo para los botones */
+    height: 220px; /* Alto fijo para los botones */
+}
+
+.btn:hover {
+    background-color: #032840;
+}
+
+/* Ocultar el texto cuando se hace hover */
+.btn:hover .btn-text {
+    transition: opacity 0.3s ease;
+    color: #ffffff;
+}
+
+.btn-text {
+    transition: opacity 0.3s ease;
+    font-size: 16px;
+    margin-top: 10px; /* Espacio entre el ícono y el texto */
+    text-align: center; /* Centra el texto */
+}
+
+/* Estilos para los íconos */
+.btn-icon {
+    height: 80px; /* Tamaño del ícono */
+    width: 80px; /* Tamaño del ícono */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animación para el botón de Administrativo */
+.administrativo-btn:hover .administrativo-icon {
+    animation: moveUpAndRotate 1s ease-in-out infinite; /* Animación de subida y giro */
+}
+
+@keyframes moveUpAndRotate {
+    0% {
+        transform: translateY(0) rotate(0deg); /* Posición inicial */
+    }
+    50% {
+        transform: translateY(-10px) rotate(15deg); /* Sube y gira */
+    }
+    100% {
+        transform: translateY(0) rotate(0deg); /* Vuelve a la posición inicial */
+    }
+}
+
+/* Animación para el botón de Docente */
+.docente-btn:hover .docente-icon {
+    animation: moveDownAndScale 1s ease-in-out infinite; /* Animación de bajada y escala */
+}
+
+@keyframes moveDownAndScale {
+    0% {
+        transform: translateY(0) scale(1); /* Posición inicial */
+    }
+    50% {
+        transform: translateY(10px) scale(1.2); /* Baja y aumenta de tamaño */
+    }
+    100% {
+        transform: translateY(0) scale(1); /* Vuelve a la posición inicial */
+    }
+}
