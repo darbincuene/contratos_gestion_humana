@@ -15,6 +15,12 @@ use Illuminate\Http\Request;
 class archivosController extends Controller
 {
 
+
+    public function carpetas(){
+        // $carpeta=carpeta::all();
+        $cargo=carpeta::with(['cargo.carpetas'])->get();
+        return view('archivos.carpetas', compact('cargo'));
+    }
     public function index()
     {
         $cargo = cargo::all();
@@ -58,18 +64,22 @@ class archivosController extends Controller
     public function subirArchivos(Request $request){
 
         // dd($request->toArray());
-        $tipo_documento_id = $request->input('tipo_documento');
+        // $tipo_documento_id = $request->input('tipo_documento');
         $subcarpeta_id = $request->input('subcarpeta_id');
     
 
         $request->validate([
             'files.*' => 'required|file|mimes:jpg,png,pdf,docx|max:5120', // 5MB máximo
-            'tipo_documento_id'=>'required',
-            'subcarpeta_id'=>'required'
+            // 'tipo_documento_id'=>'required',
+            'subcarpeta_id'=>'required',
+            'files' => 'required|array',
+            // 'archivos.*' => 'file|mimes:jpg,png,pdf,docx|max:5120',
+
         ]);
+        // dd($request);
 
         if ($request->hasFile('files')) {
-            foreach ($request->file('files') as $file) {
+            foreach ($request->file('files') as $tipo_documento_id => $file) {
                 $nombreArchivo = time() . '_' . $file->getClientOriginalName();
                 $tipoMime = $file->getClientMimeType();
                 $rutaArchivo=$file->storeAs('archivos',$nombreArchivo,'public');
@@ -80,7 +90,7 @@ class archivosController extends Controller
                     'tipo_archivo' => $tipoMime,
                     'ruta_archivo' => $rutaArchivo, 
                     'subcarpeta_id' => $request->subcarpeta_id, 
-                    'tipo_documento_id' => $request->tipo_documento_id, 
+                    'tipo_documento_id' => $tipo_documento_id, 
                 ]);
                 // dd($archivo);
                 cargararchivo::create([
@@ -88,7 +98,7 @@ class archivosController extends Controller
                     'archivo_id' => $archivo->id,
                     'fecha_subida' => Carbon::now(),
                 ]);
-
+     
             }
         }
 

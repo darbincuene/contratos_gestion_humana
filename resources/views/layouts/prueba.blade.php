@@ -36,28 +36,21 @@
                     <i class="fas fa-tachometer-alt me-2"></i> <!-- Logo de dashboard -->
                     Menú
                 </h4>
-                <a class="d-block py-2 px-3 sidebar-link"  href="{{ route('ver.archivos') }}">
+                <a class="d-block py-2 px-3 sidebar-link"  href="{{ route('inicio') }}">
                     <i class="fa-solid fa-house"></i> Inicio
                 </a>
-                <a class="d-block py-2 px-3 sidebar-link"  href="{{ route('añadir.usuarios') }}">
-                    <i class="fa-solid fa-users"></i> Usuarios
+                <a class="d-block py-2 px-3 sidebar-link"  href="{{route('todas.carpetas')}}">
+                    <i class="fa-solid fa-folder-open"></i> Ver Carpetas
+                </a>           
+                <a class="d-block py-2 px-3 sidebar-link"  href="{{ route('carpeta') }}">
+                    <i class="fa-solid fa-folder-plus"></i> Crear Carpetas
                 </a>
-                
                 <a class="d-block py-2 px-3 sidebar-link"  href="{{ route('ver.usuarios') }}">
                     <i class="fa-solid fa-user-plus"></i> Añadir ususarios
                 </a>
 
                 
-                <a class="d-block py-2 px-3 sidebar-link"  href="{{ route('index') }}">
-                    <i class="fa-solid fa-file-arrow-up"></i> Subir Archivos
-                </a>
-                <a class="d-block py-2 px-3 sidebar-link"  href="{{ route('areas.crear') }}">
-                    <i class="fa-solid fa-user-plus"></i> Crear Area
-                </a>
-
-                <a class="d-block py-2 px-3 sidebar-link"  href="{{ route('crear.roles') }}">
-                    <i class="fa-solid fa-user-plus"></i> Crear Rol
-                </a>
+                
             </div>
     
             <!-- Navbar para móviles -->
@@ -72,31 +65,18 @@
                     <div class="collapse navbar-collapse" id="navbarMenu">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-
-                                <a class="d-block py-2 px-3 sidebar-link"  href="{{ route('ver.archivos') }}">
+                                <a class="d-block py-2 px-3 sidebar-link"  href="{{ route('inicio') }}">
                                     <i class="fa-solid fa-house"></i> Inicio
                                 </a>
-                                <a class="d-block py-2 px-3 sidebar-link"  href="{{ route('añadir.usuarios') }}">
-                                    <i class="fa-solid fa-users"></i> Usuarios
+                                <a class="d-block py-2 px-3 sidebar-link"  ">
+                                    <i class="fa-solid fa-folder-open"></i> Ver Carpetas
+                                </a>           
+                                <a class="d-block py-2 px-3 sidebar-link"  href="{{ route('carpeta') }}">
+                                    <i class="fa-solid fa-folder-plus"></i> Crear Carpetas
                                 </a>
-                                
                                 <a class="d-block py-2 px-3 sidebar-link"  href="{{ route('ver.usuarios') }}">
                                     <i class="fa-solid fa-user-plus"></i> Añadir ususarios
                                 </a>
-                
-                                
-                                <a class="d-block py-2 px-3 sidebar-link"  href="{{ route('index') }}">
-                                    <i class="fa-solid fa-file-arrow-up"></i> Subir Archivos
-                                </a>
-                                <a class="d-block py-2 px-3 sidebar-link"  href="{{ route('areas.crear') }}">
-                                    <i class="fa-solid fa-user-plus"></i> Crear Area
-                                </a>
-
-                                <a class="d-block py-2 px-3 sidebar-link"  href="{{ route('crear.roles') }}">
-                                    <i class="fa-solid fa-user-plus"></i> Crear Rol
-                                </a>
-                           
-                            
                         </ul>
                     </div>
                 </div>
@@ -109,7 +89,7 @@
         </div>
     </div>
     <footer class="text-center py-5 ">
-        <div class="container">
+        
             <p class="mb-2">
                 Institución de Educación Superior sujeta a inspección y vigilancia por el Ministerio de Educación Nacional – Resolución No. 944 de 1996 MEN – SNIES 2731
             </p>
@@ -118,7 +98,7 @@
                 Teléfonos: +57 (2) 555 2767 – +57 (2) 312 0038
 
             <p class="small mb-0">© 2025 Universidad Católica. Todos los derechos reservados.</p>
-        </div>
+        
     </footer>
 
     

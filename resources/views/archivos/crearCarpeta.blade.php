@@ -7,21 +7,20 @@
     <title>Crear Nueva Carpeta</title>
     <link rel="stylesheet" href="{{ asset('css/styleCrearCarpeta.css') }}">
 </head>
-@extends('layouts.navarprincipal')
+@extends('layouts.prueba')
 @section('content')
 
     <body>
         <div class="crearCarpeta">
             <h1>Crear Nueva Carpeta</h1>
 
-            <!-- Formulario para crear una carpeta -->
             <form action="{{ route('crear.carpeta') }}" method="POST">
                 @csrf
-                <div class="">
+                <div class="carpeta">
                     <input required="required" type="text" name="nombre_carpeta">
                     <span>Nombre de la carpeta</span>
                 </div>
-                <div class="">
+                <div class="cargo">
                     <select name="cargo_id" id="">
                         <option value="">nombre cargo</option>
                         @foreach ($cargo as $item)
@@ -29,19 +28,9 @@
                         @endforeach
                     </select>
                 </div>
-
-                {{-- <div>
-                    <div class="">
-                        <input required="required" type="text" name="nombre_subcarpeta">
-
-                        <span>Nombre subcarpeta</span>
-                    </div>
-                </div> --}}
-
-
+                
                 <button class="btn-crear" type="submit">Crear</button>
             </form>
-            <!-- Enlace para volver a la vista principal -->
             <a href="carpetas.php" class="boton-volver">Volver</a>
         </div>
 

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class carpeta extends Model
 {
     use HasFactory;
+    protected $table='carpetas';
 
     protected $fillable=['nombre','cargo_id'];
 

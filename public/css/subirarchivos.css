@@ -1,0 +1,20 @@
+.contenedor-formulario {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    width: 50%;
+    /* padding: 80px; */
+    background-color: aqua;
+}
+
+/* .titulo-input{
+    display: flex;
+    justify-content: center;
+ 
+} */
+
+.contenedor-principal{
+    display: grid;
+    place-items: center;
+    background-color: red;
+}

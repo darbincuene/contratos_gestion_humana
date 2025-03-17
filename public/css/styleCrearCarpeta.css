@@ -14,7 +14,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     text-align: center;
     margin: 50px auto;
 }
@@ -32,22 +32,24 @@ form {
     gap: 15px;
 }
 
-.inputbox {
+.carpeta {
     position: relative;
     justify-items: left;
     width: 100%;
     padding: auto;
-    color: #f4f4f4;
+    color: #032840;
+    margin-bottom: 20px;
 }
   
-.inputbox input {
+.carpeta input {
     position: relative;
     width: 100%;
-    padding: 20px 10px 10px;
-    background: transparent;
+    padding: 10px;
+    background-color: #032840;
     outline: none;
     box-shadow: none;
     border: none;
+    border-radius: 4px;
     color: #f4f4f4;
     font-size: 1em;
     letter-spacing: 0.05em;
@@ -55,7 +57,7 @@ form {
     z-index: 10;
 }
   
-.inputbox span {
+.carpeta span {
     position: absolute;
     left: 0;
     padding: 20px 10px 10px;
@@ -66,14 +68,14 @@ form {
     pointer-events: none;
 }
   
-.inputbox input:valid ~span,
-.inputbox input:focus ~span {
+.carpeta input:valid ~span,
+.carpeta input:focus ~span {
     color: #032840;
     transform: translateX(-10px) translateY(-40px);
     font-size: 0,75em;
 }
   
-.inputbox i {
+.carpeta i {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -86,8 +88,8 @@ form {
     z-index: 9;
 }
   
-.inputbox input:valid ~i,
-.inputbox input:focus ~i {
+.carpeta input:valid ~i,
+.carpeta input:focus ~i {
     height: 44px;
 }
 

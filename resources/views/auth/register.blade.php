@@ -13,7 +13,7 @@
     @vite('resources/js/auth.js') --}}
     <title>Añadir Usuarios</title>
 </head>
-@extends('layouts.navarprincipal')
+@extends('layouts.prueba')
 @section('content')
 
     <body class="formularys">

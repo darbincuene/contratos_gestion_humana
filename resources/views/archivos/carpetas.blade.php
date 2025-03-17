@@ -6,20 +6,19 @@
     <title>Gestión de Carpetas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/styleCarpetas.css') }}">
-    <script src="js/script.js" defer></script>
     <!-- Estilos CSS de Bootstrap y DataTables -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.3/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="js/dashboard.js" defer></script>
+    @vite('resources/js/dashboard.js')
 </head>
-@extends('layouts.navarprincipal')
-@section('content')
+
 <body>
+@extends('layouts.prueba')
+@section('content')
     <div class="container">
         <h1>Gestión de Carpetas</h1>
         <div class="dropdown">
-            <!-- Botón para abrir el desplegable -->
+           
             <button class="Documents-btn">
                 <span class="folderContainer">
                     <svg
@@ -102,26 +101,39 @@
                 <p class="text">Crear carpeta</p>
             </button>
         </div>
-        <!-- Tabla de Carpetas -->
-        <table id="tablaCarpetas">
-            <thead>
-                <tr>
-                    <th>Nombre de la Carpeta</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                // Obtener la lista de carpetas en la carpeta "uploads"
-                $carpetas = glob('uploads/*', GLOB_ONLYDIR);
-                foreach ($carpetas as $carpeta) {
-                    echo "<tr>
-                            <td>" . basename($carpeta) . "</td>
-                          </tr>";
-                }
-                ?>
-            </tbody>
-        </table>
+       
     </div>
+
+  
+</head>
+
+    
+
+<table id="tb_carpetas" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>Nombre de carpeta</th>
+            <th>cargo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($cargo as $item) 
+
+        
+            <tr>
+                <td>{{$item->nombre}}</td>
+                <td>{{$item->cargo->nombre}}</td>
+                <td>delete</td>
+                
+    </tr>
+        @endforeach
+    </tbody>
+</table>
+@endsection 
 </body>
-@endsection
 </html>
+<!-- Scripts de DataTables -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/2.1.3/js/dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/2.1.3/js/dataTables.bootstrap5.min.js"></script>
