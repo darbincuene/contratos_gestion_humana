@@ -19,3 +19,4 @@ class carpeta extends Model
         return $this->hasOne(subcarpeta::class,'carpeta_id');
     }
 }
+ 

@@ -38,7 +38,7 @@ form {
     width: 100%;
     padding: auto;
     color: #032840;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
   
 .carpeta input {
@@ -91,6 +91,40 @@ form {
 .carpeta input:valid ~i,
 .carpeta input:focus ~i {
     height: 44px;
+}
+
+.cargo {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    background-color: #032840;
+    outline: none;
+    box-shadow: none;
+    border-radius: 4px;
+    color: #f4f4f4;
+    font-size: 1em;
+    margin-top: 50px;
+}
+
+.cargo select {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: #f4f4f4;
+    font-size: 1em;
+    cursor: pointer;
+
+}
+
+.cargo select:focus {
+    outline: none;
+    border-color: #f4f4f4;
+}
+
+/* Estilo para las opciones del select */
+.cargo option {
+    background-color: #032840;
+    color: #f4f4f4;
 }
 
 .btn-crear {

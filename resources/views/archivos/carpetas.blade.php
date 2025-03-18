@@ -124,7 +124,11 @@
             <tr>
                 <td>{{$item->nombre}}</td>
                 <td>{{$item->cargo->nombre}}</td>
-                <td>delete</td>
+                <td>
+                    <a href="{{route('detalle.archivos', $item->id)}}">Ver</a>
+
+                    <a href="{{route('descargar.archivos', $item->id)}}">descargar</a>
+                </td>
                 
     </tr>
         @endforeach

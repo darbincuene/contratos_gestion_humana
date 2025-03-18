@@ -1,20 +1,76 @@
-.contenedor-formulario {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    width: 50%;
-    /* padding: 80px; */
-    background-color: aqua;
-}
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f7fa;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
 
-/* .titulo-input{
-    display: flex;
-    justify-content: center;
- 
-} */
+    .contenedor-principal {
+        display: grid;
+        place-items: center;
+        height: 100%;
+        padding: 20px;
+    }
 
-.contenedor-principal{
-    display: grid;
-    place-items: center;
-    background-color: red;
-}
+    .contenedor-formulario {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 600px;
+        width: 100%;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        /* Esto hace que los elementos se ajusten en filas automáticamente */
+        grid-auto-rows: auto;
+    }
+
+    .labels {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .titulo-input {
+        font-size: 16px;
+        color: #333;
+    }
+
+    input[type="file"] {
+        padding: 8px;
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+    }
+
+    input[type="file"]:focus {
+        border-color: #4d90fe;
+        outline: none;
+    }
+
+    button.submit-btn {
+        padding: 12px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button.submit-btn:hover {
+        background-color: #45a049;
+    }
+
+    button.submit-btn:active {
+        background-color: #388e3c;
+    }
+
+    @media (max-width: 600px) {
+        .contenedor-formulario {
+            padding: 15px;
+        }
+    }

@@ -21,9 +21,9 @@
   outline: none;
   transition: 0.3s;
   padding: 10px;
-  background-color: #0f3b53e8;
+  background-color: #032840;
   border-radius: 6px;
-  border: 1px solid #0f3b53e8;
+  border: 1px solid #032840;
   font-size: 16px;
   margin: 10px auto;
 }
@@ -33,8 +33,8 @@
   max-width: 245px; /* Limita el ancho máximo */
   min-height: 45px;
   margin: 20px auto; /* Reducido para pantallas más pequeñas */
-  background-color: #0f3b53e8;
-  border: 1px solid #0f3b53e8;
+  background-color: #032840;
+  border: 1px solid #032840;
   color: black;
   border-radius: 6px;
   color: white;
@@ -52,7 +52,7 @@ label {
 .boton {
   text-align: center;
   padding: 12px;
-  background-color: #0f3b53e8;
+  background-color: #032840;
   border-radius: 6px;
   color: white;
   font-size: 16px;
@@ -64,7 +64,7 @@ label {
 }
 
 .boton:hover {
-  background-color: #0f3b53e8;
+  background-color: #032840;
 }
 
 .switch {
@@ -76,7 +76,7 @@ label {
   font-weight: bold;
   cursor: pointer;
   text-decoration: underline;
-  color: #0f3b53e8;
+  color: #032840;
 }
 
 /* Media Queries para responsividad */

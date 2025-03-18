@@ -22,7 +22,7 @@
                 </div>
                 <div class="cargo">
                     <select name="cargo_id" id="">
-                        <option value="">nombre cargo</option>
+                        <option value="">Nombre Cargo</option>
                         @foreach ($cargo as $item)
                             <option value="{{ $item->id }}">{{ $item->nombre }}</option>
                         @endforeach

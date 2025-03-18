@@ -19,9 +19,8 @@ Route::get('/carpetas',[archivosController::class,'index'])->name('carpeta');
 Route::get('/subirarchivos/{subcarpeta_id}',[archivosController::class,'vistasubirarchivos'])->name('formulario.archivos');
 Route::post('/subir/archivos',[archivosController::class,'subirArchivos'])->name('subir.archivos');
 
-
-
-
+Route::get('/detalle/archivos/{subcarpeta_id}',[archivosController::class,'detalleCarpetas'])->name('detalle.archivos');
+Route::get('/descargar/archivos/{id}',[archivosController::class,'descargar'])->name('descargar.archivos');
 
 
 

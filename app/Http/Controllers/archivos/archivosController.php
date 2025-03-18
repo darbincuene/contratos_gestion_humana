@@ -10,6 +10,7 @@ use App\Models\carpeta;
 use App\Models\subcarpeta;
 use App\Models\tipodocumento;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class archivosController extends Controller
@@ -103,5 +104,30 @@ class archivosController extends Controller
         }
 
         return response()->json(['success'=>true,'message'=> 'Archivos subidos correctamente.','archivos'=>$archivo]);
+    }
+
+    public function detalleCarpetas($id){
+
+        $archivos = Archivo::with(['subcarpeta.archivos'])
+        ->where('subcarpeta_id', $id) 
+        ->get();
+        return view('archivos.detalle', compact('archivos'));
+
+        
+    }
+
+    public function descargar($id){
+        $archivos=archivo::findOrFail($id);
+        $rutaArchivo=$archivos->ruta_archivo;
+
+
+        // dd($archivos);
+
+        if (!Storage::exists($archivos->ruta_archivo)) {
+            return response()->json(['message'=> 'El archivo no existe en el servidor.'],404);
+        }
+        
+        return Storage::download($rutaArchivo, $archivos->nombre_archivo);
+        
     }
 }

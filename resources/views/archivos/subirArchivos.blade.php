@@ -25,11 +25,13 @@
             {{-- <input type="hidden" name="usuario_id" value="{{ auth()->id() }}"> <!-- Para identificar al usuario --> --}}
     
             @foreach ($tiposdoc as $tipo)
+            <div class="labels">
                 <label class="titulo-input" for="files_{{ $tipo->id }}">{{ $tipo->nombre }}</label>
                 <input type="file" name="files[{{ $tipo->id }}]" id="archivo_{{ $tipo->id }}" required>
+            </div>
             @endforeach
     
-            <button type="submit">Subir Archivos</button>
+            <button type="submit" class="submit-btn">Subir Archivos</button>
         </form>
     </div>
 
