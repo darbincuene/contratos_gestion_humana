@@ -116,18 +116,31 @@ class archivosController extends Controller
         
     }
 
-    public function descargar($id){
-        $archivos=archivo::findOrFail($id);
-        $rutaArchivo=$archivos->ruta_archivo;
 
-
-        // dd($archivos);
-
-        if (!Storage::exists($archivos->ruta_archivo)) {
-            return response()->json(['message'=> 'El archivo no existe en el servidor.'],404);
+    public function descargar($id) {
+        $archivos = archivo::findOrFail($id);
+        //es una funcion que nos  devuelve la ruta absoluta o excata de la carpeta storage
+        $rutaArchivo = storage_path('app/public/' . $archivos->ruta_archivo);
+    
+        if (!file_exists($rutaArchivo)) {
+            return response()->json(['message' => 'El archivo no existe en el servidor.'], 404);
         }
-        
-        return Storage::download($rutaArchivo, $archivos->nombre_archivo);
-        
+    
+        return response()->download($rutaArchivo, $archivos->nombre_archivo);
     }
+    
+    // public function descargar($id){
+    //     $archivos=archivo::findOrFail($id);
+    //     $rutaArchivo=$archivos->ruta_archivo;
+
+
+    //     // dd($archivos);
+
+    //     if (!Storage::exists($archivos->ruta_archivo)) {
+    //         return response()->json(['message'=> 'El archivo no existe en el servidor.'],404);
+    //     }
+        
+    //     return Storage::download($rutaArchivo, $archivos->nombre_archivo);
+        
+    // }
 }
