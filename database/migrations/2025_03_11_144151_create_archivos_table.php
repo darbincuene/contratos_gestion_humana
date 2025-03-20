@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('ruta_archivo');
             $table->unsignedBigInteger('subcarpeta_id')->nullable();
             $table->unsignedBigInteger('tipo_documento_id')->nullable();
-            $table->foreign('subcarpeta_id')->references('id')->on('subcarpetas');
-            $table->foreign('tipo_documento_id')->references('id')->on('tipo_documentos');
+            $table->foreign('subcarpeta_id')->references('id')->on('subcarpetas')->onDelete('cascade');
+            $table->foreign('tipo_documento_id')->references('id')->on('tipo_documentos')->onDelete('cascade');
             $table->timestamps();
         });
     }

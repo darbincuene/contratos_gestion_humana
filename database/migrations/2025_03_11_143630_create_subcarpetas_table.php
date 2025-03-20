@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->unsignedBigInteger('carpeta_id')->nullable();
-            $table->foreign('carpeta_id')->references('id')->on('carpetas');
+            $table->foreign('carpeta_id')->references('id')->on('carpetas')->onDelete('cascade');
             $table->timestamps();
         });
     }

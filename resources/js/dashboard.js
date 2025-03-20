@@ -7,7 +7,7 @@ new DataTable('#tb_carpetas', {
         
     },
     columnDefs: [
-        {orderable: false, targets:[2]}
+        {orderable: false, targets:[1]}
     ],
 
     

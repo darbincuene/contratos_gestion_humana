@@ -10,7 +10,7 @@
 }
 
 /* Contenedor de botones */
-.botones-container {
+.botones-inicio {
     display: flex;
     justify-content: center;
     gap: 150px; /* Espacio entre los botones */

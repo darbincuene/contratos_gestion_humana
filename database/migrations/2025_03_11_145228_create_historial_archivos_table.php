@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->date('fecha_movimiento');
             $table->string('accion');
-            $table->unsignedBigInteger('archivo_id')->nullable();
-            $table->unsignedBigInteger('usuario_id')->nullable();
-            $table->foreign('archivo_id')->references('id')->on('archivos');
-            $table->foreign('usuario_id')->references('id')->on('users');
+            $table->unsignedBigInteger('archivo_id')->nullable()->onDelete('cascade');
+            $table->unsignedBigInteger('usuario_id')->nullable()->onDelete('cascade');
+            $table->foreign('archivo_id')->references('id')->on('archivos')->onDelete('cascade');
+            $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

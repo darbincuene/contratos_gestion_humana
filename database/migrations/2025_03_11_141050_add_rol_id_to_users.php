@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->date('fecha_caducidad');
             $table->unsignedBigInteger('rol_id')->nullable();
-            $table->foreign('rol_id')->references('id')->on('roles');
+            $table->foreign('rol_id')->references('id')->on('roles')->onDelete('cascade');
             $table-> boolean('estado')->default(true);
             
         });

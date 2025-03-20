@@ -12,6 +12,7 @@ use App\Models\tipodocumento;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use ZipArchive;
 
 class archivosController extends Controller
 {
@@ -20,6 +21,7 @@ class archivosController extends Controller
     public function carpetas(){
         // $carpeta=carpeta::all();
         $cargo=carpeta::with(['cargo.carpetas'])->get();
+        // dd($cargo);
         return view('archivos.carpetas', compact('cargo'));
     }
     public function index()
@@ -108,10 +110,19 @@ class archivosController extends Controller
 
     public function detalleCarpetas($id){
 
-        $archivos = Archivo::with(['subcarpeta.archivos'])
-        ->where('subcarpeta_id', $id) 
+        $archivos = archivo::with('subcarpeta.carpeta')
+        ->where('subcarpeta_id', $id)
         ->get();
-        return view('archivos.detalle', compact('archivos'));
+
+        $datos = archivo::with('subcarpeta.carpeta')
+        ->where('subcarpeta_id', $id)
+        ->first();
+       
+       
+        // dd($archivos);
+        return view('archivos.detalle', compact('archivos','datos'));
+
+        
 
         
     }
@@ -119,7 +130,7 @@ class archivosController extends Controller
 
     public function descargar($id) {
         $archivos = archivo::findOrFail($id);
-        //es una funcion que nos  devuelve la ruta absoluta o excata de la carpeta storage
+        //storage_path es una funcion que nos  devuelve la ruta absoluta o excata de la carpeta storage
         $rutaArchivo = storage_path('app/public/' . $archivos->ruta_archivo);
     
         if (!file_exists($rutaArchivo)) {
@@ -128,19 +139,69 @@ class archivosController extends Controller
     
         return response()->download($rutaArchivo, $archivos->nombre_archivo);
     }
-    
-    // public function descargar($id){
-    //     $archivos=archivo::findOrFail($id);
-    //     $rutaArchivo=$archivos->ruta_archivo;
 
 
-    //     // dd($archivos);
 
-    //     if (!Storage::exists($archivos->ruta_archivo)) {
-    //         return response()->json(['message'=> 'El archivo no existe en el servidor.'],404);
-    //     }
-        
-    //     return Storage::download($rutaArchivo, $archivos->nombre_archivo);
-        
-    // }
+public function descargarCarpeta($id)
+{
+    $subcarpeta = Subcarpeta::find($id);
+    if (!$subcarpeta) {
+        return response()->json(['error' => 'Subcarpeta no encontrada'], 404);
+    }
+
+    $zipFileName = $subcarpeta->nombre . '.zip';
+    $zipPath = storage_path('app/public/' . $zipFileName);
+
+    $archivos = Archivo::where('subcarpeta_id', $id)->get();
+    if ($archivos->isEmpty()) {
+        return response()->json(['error' => 'No hay archivos para descargar'], 404);
+    }
+    $zip = new ZipArchive;
+    if ($zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === true) {
+        foreach ($archivos as $archivo) {
+            $rutaArchivo = storage_path('app/public/' . $archivo->ruta_archivo);
+
+            if (file_exists($rutaArchivo)) {
+                $zip->addFile($rutaArchivo, $archivo->id . '_' . basename($rutaArchivo));
+            } else {
+            }
+        }
+        $zip->close();
+    } else {
+        return response()->json(['error' => 'No se pudo crear el archivo ZIP'], 500);
+    }
+
+    return response()->download($zipPath, $zipFileName);
+}
+
+
+
+public function eliminarArchivo($id){
+
+    $carpeta=carpeta::findOrFail($id);
+    // $datos=
+    $carpeta->delete();
+if (!$carpeta) {
+      
+    return redirect()->route('carpeta')->with('success','carpeta eliminado correctamente');
+
+     }
+     return response()->json(['message'=>'carpeta no encontrada'],404);
+
+}
+
+
+public function eliminarSubcarpeta($id){
+
+    $carpeta=subcarpeta::findOrFail($id);
+    // $datos=
+    $carpeta->delete();
+if (!$carpeta) {
+      
+    return redirect()->route('carpeta')->with('success','carpeta eliminado correctamente');
+
+     }
+     return response()->json(['message'=>'carpeta no encontrada'],404);
+
+}
 }

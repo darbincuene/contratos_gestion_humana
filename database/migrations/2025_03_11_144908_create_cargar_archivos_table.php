@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('usuario_id')->nullable();
             $table->unsignedBigInteger('archivo_id')->nullable();
-            $table->foreign('usuario_id')->references('id')->on('users');
-            $table->foreign('archivo_id')->references('id')->on('archivos');
+            $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('archivo_id')->references('id')->on('archivos')->onDelete('cascade');
             $table->date('fecha_subida');
             $table->timestamps();
         });

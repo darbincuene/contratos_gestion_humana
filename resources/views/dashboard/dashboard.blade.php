@@ -13,13 +13,13 @@
 @section('content')
 <body>
     @csrf       
-        <div class="botones-container">
+        <div class="botones-inicio">
             <!-- Botón de Administrativo -->
             <button type="submit" class="btn btn-primary administrativo-btn">
-                <img src="{{ asset('imagenes/administrativo.png') }}" alt="Admin" class="btn-icon administrativo-icon">
+                <img src="{{ asset('imagenes/creacion-de-contenido.png') }}" alt="Admin" class="btn-icon administrativo-icon">
                 <span class="btn-text">Administrativo</span>
             </button>
-
+<!-- imagenes de flaticon -->
             <!-- Botón de Docente -->
             <button type="submit" class="btn btn-primary docente-btn">
                 <img src="{{ asset('imagenes/profesor.png') }}" alt="Docente" class="btn-icon docente-icon">

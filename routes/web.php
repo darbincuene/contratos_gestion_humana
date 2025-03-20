@@ -14,13 +14,19 @@ Route::get('/dashboard', [authscontroller::class,'index'])->name('dashboard.prue
 
 Route::post('/crear/carpeta',[archivosController::class,'crearCarpeta'])->name('crear.carpeta');
 Route::get('/carpetas',[archivosController::class,'index'])->name('carpeta');
- route::get('/ver/carpetas',[archivosController::class, 'carpetas'])->name('todas.carpetas');
+route::get('/ver/carpetas',[archivosController::class, 'carpetas'])->name('todas.carpetas');
 
 Route::get('/subirarchivos/{subcarpeta_id}',[archivosController::class,'vistasubirarchivos'])->name('formulario.archivos');
 Route::post('/subir/archivos',[archivosController::class,'subirArchivos'])->name('subir.archivos');
 
 Route::get('/detalle/archivos/{subcarpeta_id}',[archivosController::class,'detalleCarpetas'])->name('detalle.archivos');
 Route::get('/descargar/archivos/{id}',[archivosController::class,'descargar'])->name('descargar.archivos');
+Route::get('/descargar/carpeta/{id}',[archivosController::class,'descargarCarpeta'])->name('descargar.carpeta');
+
+// Route::post('/eliminar/carpeta/{id}',[archivosController::class,'eliminarArchivo'])->name('eliminar.archivo');
+Route::delete('/eliminar/carpeta/{id}', [archivosController::class, 'eliminarArchivo'])->name('eliminar.archivo');
+Route::delete('/eliminar/subcarpeta/{id}', [archivosController::class, 'eliminarSubcarpeta'])->name('eliminar.subcarpeta');
+
 
 
 
@@ -28,6 +34,7 @@ Route::get('/descargar/archivos/{id}',[archivosController::class,'descargar'])->
 Route::get('/', function () {
     return view('auth.login');
 })->name('login.usuarios');
+
 route::get('/inicio', function(){
     return view("dashboard.dashboard");
 })->name('inicio');
