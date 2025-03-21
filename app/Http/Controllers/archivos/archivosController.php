@@ -7,9 +7,11 @@ use App\Models\archivo;
 use App\Models\cargararchivo;
 use App\Models\cargo;
 use App\Models\carpeta;
+use App\Models\ShareFolder;
 use App\Models\subcarpeta;
 use App\Models\tipodocumento;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use ZipArchive;
@@ -212,7 +214,54 @@ class archivosController extends Controller
 
         return response()->json(['url' => asset("storage/" . $rutaArchivo)]);
     }
-    public function compartirCarpeta($id){
-        
+
+    
+    public function compartirCarpeta($id)
+    {
+        $carpeta = carpeta::with('subcarpeta.archivos')->findOrFail($id);
+    
+        // Verificar si ya existe un enlace activo
+        $existingSharedFolder = ShareFolder::where('carpeta_id', $id)->where('expires_at', '>', Carbon::now())->first();
+        if ($existingSharedFolder) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Ya existe un enlace activo',
+                'url' => route('ver.carpeta', ['token' => $existingSharedFolder->token]),
+                'expires_at' => $existingSharedFolder->expires_at,
+            ]);
+        }
+    
+        // Generar un token único
+        $token = Str::random(40);
+        $expiration = Carbon::now()->addHours(24); // Expira en 24 horas
+    
+        $sharedFolder = ShareFolder::create([
+            'carpeta_id' => $carpeta->id,
+            'token' => $token,
+            'expires_at' => $expiration,
+        ]);
+    
+        $url = route('ver.carpeta', ['token' => $token]);
+    
+        return response()->json([
+            'success' => true,
+            'message' => 'Enlace generado con éxito',
+            'url' => $url,
+            'expires_at' => $expiration,
+        ]);
     }
+
+    public function verCarpeta($token)
+{
+    $sharedFolder = ShareFolder::where('token', $token)->first();
+
+    if (!$sharedFolder || $sharedFolder->isExpired()) {
+        return response()->json(['message' => 'El enlace ha expirado o no existe'], 404);
+    }
+
+    $carpeta = $sharedFolder->carpeta;
+    $subcarpetas = subcarpeta::where('carpeta_id', $carpeta->id)->with('archivos')->get();
+
+    return view('archivos.verCarpeta', compact('carpeta', 'subcarpetas'));
+}
 }

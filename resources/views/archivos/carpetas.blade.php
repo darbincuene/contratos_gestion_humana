@@ -40,16 +40,22 @@
                                 <a href="{{ route('detalle.archivos', $item->id) }}"><i class="fa-solid fa-eye "
                                         title="Ver"></i></a>
 
+                               
                                 <a href="{{ route('descargar.carpeta', $item->id) }}"> <i
                                         class="fa-solid fa-cloud-arrow-down" title="Descargar Carpeta"></i></a>
+
+                                <a href="{{ route('compartir.carpeta', $item->id) }}"> compartir carpeta<i
+                                        class="" title="compartir carpeta"></i></a>
 
                                 <form action="{{ route('eliminar.archivo', $item->id) }}" method="POST">
                                     @method('DELETE')
                                     @csrf
 
                                     <button type="submit" style="border:none; background:none; ">
-                                        <i class="fa-solid fa-trash" style="color:rgba(255, 0, 0, 0.726);
-                                            title=" Eliminar"></i>
+                                        <i class="fa-solid fa-trash"
+                                            style="color:rgba(255, 0, 0, 0.726);
+                                            title="
+                                            Eliminar"></i>
                                     </button>
                                 </form>
 
@@ -64,6 +70,7 @@
         </div>
     @endsection
 </body>
+
 
 </html>
 <!-- Scripts de DataTables -->

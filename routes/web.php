@@ -30,6 +30,14 @@ Route::delete('/eliminar/carpeta/{id}', [archivosController::class, 'eliminarArc
 Route::delete('/eliminar/subcarpeta/{id}', [archivosController::class, 'eliminarSubcarpeta'])->name('eliminar.subcarpeta');
 
 
+Route::get('/compartir/carpeta/{id}', [archivosController::class, 'compartirCarpeta'])->name('compartir.carpeta');   
+
+Route::get('/compartir/carpeta/ver/{token}', [archivosController::class, 'verCarpeta'])->name('ver.carpeta');
+
+
+
+
+
 
 
 
