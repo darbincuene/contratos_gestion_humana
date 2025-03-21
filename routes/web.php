@@ -23,6 +23,8 @@ Route::get('/detalle/archivos/{subcarpeta_id}',[archivosController::class,'detal
 Route::get('/descargar/archivos/{id}',[archivosController::class,'descargar'])->name('descargar.archivos');
 Route::get('/descargar/carpeta/{id}',[archivosController::class,'descargarCarpeta'])->name('descargar.carpeta');
 
+Route::get('/ver/archivo/{id}',[archivosController::class,'visualizarArchivo'])->name('ver.archivo');
+
 // Route::post('/eliminar/carpeta/{id}',[archivosController::class,'eliminarArchivo'])->name('eliminar.archivo');
 Route::delete('/eliminar/carpeta/{id}', [archivosController::class, 'eliminarArchivo'])->name('eliminar.archivo');
 Route::delete('/eliminar/subcarpeta/{id}', [archivosController::class, 'eliminarSubcarpeta'])->name('eliminar.subcarpeta');

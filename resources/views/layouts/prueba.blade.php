@@ -18,7 +18,7 @@
     
     <header class="headePadre">
         <div class="imagen">
-            <img class="verticalAmarillo"src="{{ asset('storage/logos/horizontal_full_color.png') }}" alt="verticalAmarillo" />
+            <img class="verticalAmarillo"src="{{ asset('storage/logos/horizontalcolorAmarillo.png') }}" style="width: 250px" alt="verticalAmarillo" />
         </div>
         <div class="titulosNav">
             <h3>Historial Laboral</h3>

@@ -2,15 +2,7 @@
   color: white;
 
 }
-
-.container {
-    display: flex;
-    flex-direction: column;
-    gap: 5rem; 
-  }
-
   
-  /* Estilo general del contenedor */
   .container {
     display: flex;
     justify-content: center;
@@ -19,20 +11,16 @@
     margin: 40px auto;
   }
   
-  /* Estilo del formulario */
   .form_wrapper {
     padding: 30px;
     border-radius: 10px;
     background-color:rgba(255, 255, 255, 0.493);
-  
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     width: 100%;
     max-width: 400px;
-    height: 420px;
     text-align: center;
   }
   
-  /* Texto de bienvenida */
   .form_details {
     font-size: 1.5rem;
     font-weight: bold;
@@ -40,7 +28,6 @@
     color: rgb(0, 0, 0);
   }
   
-  /* Estilos de los inputs */
   .input {
     width: 100%;
     padding: 10px;
@@ -51,7 +38,6 @@
     background-color: #032840;
   }
   
-  /* Botón de inicio de sesión */
   .btn {
     width: 50%;
     padding: 10px;
@@ -59,58 +45,11 @@
     border: none;
     color: white;
     font-size: 1.2rem;
-    font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
     margin: 20px auto;
   }
-  
-  .btn:hover {
-    color: #fff;
-    background: #032840;;
-  }
-  
-  /* Enlace para recuperar contraseña */
-  a {
-    display: block;
-    margin-top: 10px;
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Mensajes de error */
-  .alert-danger {
-    color: #ff4d4d;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-  }
-  
-  /* Estilo para el texto de registro */
-  .switch {
-    display: block;
-    margin-top: 10px;
-    color: white;
-    font-size: 0.9rem;
-  }
-
-  /* Estilos para el ícono de bienvenida */
-  .icono-bienvenida {
-    text-align: center; /* Centra la imagen horizontalmente */
-    margin-bottom: 20px; /* Espacio debajo de la imagen */
-  }
-
-  .welcome-icon {
-    width: 80px; /* Ajusta el tamaño de la imagen */
-    height: 80px;
-    border-radius: 50%; /* Opcional: Hace la imagen circular */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: Añade una sombra */
-  }
-    
   /* Adaptabilidad para móviles */
   @media (max-width: 480px) {
     .form_wrapper {

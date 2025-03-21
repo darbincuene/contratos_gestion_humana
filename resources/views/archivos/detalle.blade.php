@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Archivos</title>
+    <link rel="icon" type="image" href="{{ asset('storage/logos/ESTRELLA.png') }}">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -28,6 +30,7 @@
             <tr>
                 <td>{{$item->nombre_archivo}}</td>
                 <td><a href="{{route('descargar.archivos', $item->id)}}">descargar</a>
+                    <a><i class="fa-solid fa-eye fa-lg text-primary" onclick="previsualizarArchivo({{$item->id }})" title="Ver archivo" aria-hidden="true"></i></a>
                     <form action="{{ route('eliminar.subcarpeta', $datos->subcarpeta->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
@@ -45,6 +48,21 @@
     @endsection 
 </body>
 </html>
+
+<script>
+    function previsualizarArchivo(archivoId) {
+        fetch(`/ver/archivo/${archivoId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.url) {
+                    window.open(data.url, '_blank'); 
+                } else {
+                    alert('No se pudo cargar la vista previa.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+    </script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.datatables.net/2.1.3/js/dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/2.1.3/js/dataTables.bootstrap5.min.js"></script>

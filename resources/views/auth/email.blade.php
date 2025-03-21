@@ -8,6 +8,8 @@
     <link rel="icon" type="image" href="{{ asset('storage/logos/horizontal_full_color.png') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/styleEmail.css') }}">
+    <link rel="icon" type="image" href="{{ asset('storage/logos/ESTRELLA.png') }}">
+
     {{-- @vite('resources/css/styleLogin.css')
     @vite('resources/js/auth.js') --}}
 </head> 

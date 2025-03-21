@@ -6,35 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Nueva Carpeta</title>
     <link rel="stylesheet" href="{{ asset('css/styleCrearCarpeta.css') }}">
+    <link rel="icon" type="image" href="{{ asset('storage/logos/ESTRELLA.png') }}">
+
 </head>
 @extends('layouts.prueba')
 @section('content')
 
-    <body>
+    <body style="background-image: url('{{ asset('storage/logos/FOTO2.png') }}')">
         <div class="crearCarpeta">
-            <h1>Crear Nueva Carpeta</h1>
+            <h1>Crear Carpeta</h1>
 
             <form action="{{ route('crear.carpeta') }}" method="POST">
                 @csrf
                 <div class="carpeta">
-                    <input required="required" type="text" name="nombre_carpeta">
-                    <span>Nombre de la carpeta</span>
+                    {{-- <label for="nombre">Nombre de carpeta:</label> --}}
+                    <input class="inputplaceholder" required="required" type="text" name="nombre_carpeta"
+                        placeholder="Nombre de la Carpeta">
+
                 </div>
-                <div class="cargo">
-                    <select name="cargo_id" id="">
-                        <option value="">Nombre Cargo</option>
-                        @foreach ($cargo as $item)
-                            <option value="{{ $item->id }}">{{ $item->nombre }}</option>
-                        @endforeach
-                    </select>
+                <div class="prueba">
+                    <div class="cargo">
+                        <select name="cargo_id">
+                            <option value="">Nombre Cargo</option>
+                            @foreach ($cargo as $item)
+                                <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
-                
-                <button class="btn-crear" type="submit">Crear</button>
+
+                <div>
+                    <button class="button">
+                        <span class="button-content">Crear </span>
+                    </button>
+                </div>
+
             </form>
-            <a href="carpetas.php" class="boton-volver">Volver</a>
         </div>
 
-        
+
     </body>
 @endsection
 

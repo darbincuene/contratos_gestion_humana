@@ -7,7 +7,6 @@
 }
 
 .container-titulo {
-    /* background-color: #ffffff; */
     padding: 20px;
     border-radius: 8px;
     width: 100%;
@@ -21,4 +20,7 @@ h1 {
     font-size: 24px;
     margin-bottom: 30px;
 }
-  
+
+.titulocarpetas{
+  color: white;
+}

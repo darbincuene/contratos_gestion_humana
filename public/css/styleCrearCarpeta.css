@@ -9,7 +9,7 @@ body {
 }
 
 .crearCarpeta {
-    background-color: #ffffff;
+    background-color: #ffffff5b;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -18,159 +18,88 @@ body {
     text-align: center;
     margin: 50px auto;
 }
-
-h1 {
-    font-size: 24px;
-    color: #000000;
-    margin-bottom: 20px;
+.prueba{
+    display: flex;
+    justify-content: center;
 }
-
-/* Estilos para el formulario */
 form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-
-/* input para el nombre de la carpeta */
-.carpeta {
-    position: relative;
-    justify-items: left;
-    width: 100%;
-    padding: auto;
-    color: #032840;
-    margin-top: 20px;
+.inputplaceholder::placeholder{
+    color: white;
 }
-  
 .carpeta input {
-    position: relative;
-    width: 100%;
+    
+    width: 320px;
     padding: 10px;
     background-color: #032840;
-    outline: none;
+    
     box-shadow: none;
     border: none;
     border-radius: 4px;
-    color: #f4f4f4;
-    font-size: 1em;
-    letter-spacing: 0.05em;
-    transition: 0.5s;
     z-index: 10;
 }
-  
-.carpeta span {
-    position: absolute;
-    left: 0;
-    padding: 20px 10px 10px;
-    font-size: 1em;
-    color: #032840;
-    letter-spacing: 00.05em;
-    transition: 0.5s;
-    pointer-events: none;
-}
-  
-.carpeta input:valid ~span,
-.carpeta input:focus ~span {
-    color: #032840;
-    transform: translateX(-10px) translateY(-40px);
-    font-size: 0,75em;
-}
-  
-.carpeta i {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background: #032840;
-    border-radius: 4px;
-    transition: 0.5s;
-    pointer-events: none;
-    z-index: 9;
-}
-  
-.carpeta input:valid ~i,
-.carpeta input:focus ~i {
-    height: 44px;
-}
 
-/* Input para seleccionar el cargo */
 .cargo {
-    position: relative;
-    width: 100%;
+    width: 70%;
     padding: 10px;
     background-color: #032840;
-    outline: none;
     box-shadow: none;
     border-radius: 4px;
     color: #f4f4f4;
-    font-size: 1em;
-    margin-top: 50px;
 }
+
 
 .cargo select {
     width: 100%;
-    background-color: transparent;
     border: none;
-    color: #f4f4f4;
-    font-size: 1em;
-    cursor: pointer;
-
-}
-
-.cargo select:focus {
-    outline: none;
-    border-color: #f4f4f4;
-}
-
-/* Estilo para las opciones del select */
-.cargo option {
+    color: white;
     background-color: #032840;
-    color: #f4f4f4;
+
 }
-
-/* Boton para crear la carpeta */
-
-.btn-crear {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
+/* From Uiverse.io by Madflows */ 
+.button {
+    position: relative;
+    overflow: hidden;
+    height: 3rem;
+    padding: 0 2rem;
+    border-radius: 10px;
+    background: #032840;
+    background-size: 400%;
     color: #fff;
-    background-color: #032840;
-    border: 1px solid #032840;
-    border-radius: 4px;
+    width: 150px;
+    border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 50px auto;
-}
+    
+  }
 
-.btn-crear:hover {
-    background-color: #ffffff;
-    color: #032840;
-}
-
-/* Estilos para el botón de volver */
-.boton-volver {
-    display: inline-block;
-    /* margin-top: 0px; */
-    padding: 10px 15px;
-    font-size: 16px;
-    color: #ffffff;
-    text-decoration: none;
-    border: 1px solid #032840;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    background-color: #032840;
-}
-
-.boton-volver:hover {
-    background-color: #ffffff;
-    color: #032840;
-}
-
-/* Estilos para los mensajes de error */
-.mensaje-error {
-    color: #dc3545;
-    font-size: 14px;
-    margin-top: 10px;
-}
+  
+  .button:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .button-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    background: linear-gradient(
+      82.3deg,
+      rgba(51, 51, 51, 1) 10.8%,
+      rgba(15, 59, 83, 1) 94.3%
+    );
+    transition: all 0.475s;
+  }
+  

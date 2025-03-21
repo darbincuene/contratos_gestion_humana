@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Carpetas</title>
+    <link rel="icon" type="image" href="{{ asset('storage/logos/ESTRELLA.png') }}">
+    <title></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/styleCarpetas.css') }}">
     <!-- Estilos CSS de Bootstrap y DataTables -->
@@ -17,7 +19,7 @@
     @extends('layouts.prueba')
     @section('content')
         <div class="container-titulo">
-            <h1>Carpetas</h1>
+            <h1 class="titulocarpetas">Carpetas</h1>
         </div>
 
         <div style="background: rgba(255, 255, 255, 0.76); font-weight: bold; border-radius:10px; padding:10px">
@@ -45,8 +47,8 @@
                                     @method('DELETE')
                                     @csrf
 
-                                    <button type="submit" style="border:none ">
-                                        <i class="fa-solid fa-trash" style="color:rgba(255, 0, 0, 0.726);   "
+                                    <button type="submit" style="border:none; background:none; ">
+                                        <i class="fa-solid fa-trash" style="color:rgba(255, 0, 0, 0.726);
                                             title=" Eliminar"></i>
                                     </button>
                                 </form>
