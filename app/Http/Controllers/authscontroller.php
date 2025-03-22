@@ -36,7 +36,7 @@ class authscontroller extends Controller
             if(Hash::check($request->password, $user->password)){
                 Auth::login($user);
                 $request->session()->regenerate();
-                return redirect()->route('inicio');
+                return redirect()->route('carpeta');
               
             }else{
                 return back()->withErrors(['password' => 'Contraseña incorrecta']);

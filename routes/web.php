@@ -10,7 +10,6 @@ Route::get('/registro/usuarios',[authscontroller::class, 'vistaregistrar'])->nam
 Route::post('/registro',[authscontroller::class, 'registrarusuario'])->name('registrar.usuarios');
 Route::post('/login',[authscontroller::class, 'login'])->name('login.crear');
 
-Route::get('/dashboard', [authscontroller::class,'index'])->name('dashboard.prueba');
 
 Route::post('/crear/carpeta',[archivosController::class,'crearCarpeta'])->name('crear.carpeta');
 Route::get('/carpetas',[archivosController::class,'index'])->name('carpeta');
@@ -31,7 +30,6 @@ Route::delete('/eliminar/subcarpeta/{id}', [archivosController::class, 'eliminar
 
 
 Route::get('/compartir/carpeta/{id}', [archivosController::class, 'compartirCarpeta'])->name('compartir.carpeta');   
-
 Route::get('/compartir/carpeta/ver/{token}', [archivosController::class, 'verCarpeta'])->name('ver.carpeta');
 
 

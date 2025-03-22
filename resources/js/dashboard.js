@@ -25,27 +25,3 @@ new DataTable('#tb_detalle', {
     
 }); 
 
-$(document).ready(function() {
-    $(".btn-compartir").click(function() {
-        let carpetaId = $(this).data("id");
-
-        $.ajax({
-            url: `/compartir/carpeta/${carpetaId}`,
-            method: "POST",
-            headers: {
-                "X-CSRF-TOKEN": "{{ csrf_token() }}"
-            },
-            success: function(response) {
-                if (response.success) {
-                    let link = window.location.origin + "/compartir/" + response.token;
-                    alert("📂 Enlace generado: " + link);
-                } else {
-                    alert("❌ Error al generar el enlace");
-                }
-            },
-            error: function() {
-                alert("❌ Ocurrió un error al intentar compartir la carpeta");
-            }
-        });
-    });
-});

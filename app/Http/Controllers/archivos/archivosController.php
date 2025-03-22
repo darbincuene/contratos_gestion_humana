@@ -215,13 +215,17 @@ class archivosController extends Controller
         return response()->json(['url' => asset("storage/" . $rutaArchivo)]);
     }
 
-    
+
     public function compartirCarpeta($id)
     {
-        $carpeta = carpeta::with('subcarpeta.archivos')->findOrFail($id);
-    
-        // Verificar si ya existe un enlace activo
-        $existingSharedFolder = ShareFolder::where('carpeta_id', $id)->where('expires_at', '>', Carbon::now())->first();
+        $carpeta = carpeta::with('subcarpeta.archivos')->findOrFail($id); //carg la carpeta con sus relaciones
+
+        //es para verificar si hay un enlace activo
+        $existingSharedFolder = ShareFolder::where('carpeta_id', $id)
+            ->where('expires_at', '>', Carbon::now())
+            ->first();
+
+        // si se encuentra actico devuelve el enlace que tiene sin crear un nuevo enlace
         if ($existingSharedFolder) {
             return response()->json([
                 'success' => true,
@@ -230,19 +234,21 @@ class archivosController extends Controller
                 'expires_at' => $existingSharedFolder->expires_at,
             ]);
         }
-    
+
         // Generar un token único
-        $token = Str::random(40);
-        $expiration = Carbon::now()->addHours(24); // Expira en 24 horas
-    
+        $token = Str::random(40); //genera un token unico
+        $expiration = Carbon::now()->addHours(24);
+
+        // almacena ellink de la carpeta en la base de datos
+
         $sharedFolder = ShareFolder::create([
             'carpeta_id' => $carpeta->id,
             'token' => $token,
             'expires_at' => $expiration,
         ]);
-    
+
         $url = route('ver.carpeta', ['token' => $token]);
-    
+
         return response()->json([
             'success' => true,
             'message' => 'Enlace generado con éxito',
@@ -251,17 +257,18 @@ class archivosController extends Controller
         ]);
     }
 
+    //  ver el contenido de la carpeta comparatida
     public function verCarpeta($token)
-{
-    $sharedFolder = ShareFolder::where('token', $token)->first();
+    {
+        $sharedFolder = ShareFolder::where('token', $token)->first();//esto hace es que busquemos en la base de datos el token recibido
 
-    if (!$sharedFolder || $sharedFolder->isExpired()) {
-        return response()->json(['message' => 'El enlace ha expirado o no existe'], 404);
+        if (!$sharedFolder || $sharedFolder->isExpired()) {
+            return response()->json(['message' => 'El enlace ha expirado o no existe'], 404);
+        }
+
+        $carpeta = $sharedFolder->carpeta;
+        $subcarpetas = subcarpeta::where('carpeta_id', $carpeta->id)->with('archivos')->get();
+
+        return view('archivos.verCarpeta', compact('carpeta', 'subcarpetas'));
     }
-
-    $carpeta = $sharedFolder->carpeta;
-    $subcarpetas = subcarpeta::where('carpeta_id', $carpeta->id)->with('archivos')->get();
-
-    return view('archivos.verCarpeta', compact('carpeta', 'subcarpetas'));
-}
 }

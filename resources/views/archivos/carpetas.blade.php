@@ -44,8 +44,7 @@
                                 <a href="{{ route('descargar.carpeta', $item->id) }}"> <i
                                         class="fa-solid fa-cloud-arrow-down" title="Descargar Carpeta"></i></a>
 
-                                <a href="{{ route('compartir.carpeta', $item->id) }}"> compartir carpeta<i
-                                        class="" title="compartir carpeta"></i></a>
+                                <a href="{{ route('compartir.carpeta', $item->id) }}"> <i class="fa-solid fa-share-nodes" title="Compartir Carpeta"></i></a>
 
                                 <form action="{{ route('eliminar.archivo', $item->id) }}" method="POST">
                                     @method('DELETE')
