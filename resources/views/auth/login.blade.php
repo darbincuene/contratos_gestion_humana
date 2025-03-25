@@ -16,11 +16,9 @@
 </head>
 @extends('layouts.navarprincipal')
 @section('content')
-<body class="formulario">
+<body class="formulario" style="background-image: url('{{ asset('storage/logos/FOTO2.png') }}')">
     <div class="container">
-        <!-- Contenedor de formularios -->
         <div class="form_wrapper">
-            <!-- Formulario de inicio de sesión -->
             <form action="{{ route('login.crear') }}" method="POST" class="form_front">
                 @csrf
                 

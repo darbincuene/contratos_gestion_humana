@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Navar</title>
     <link rel="stylesheet" href="{{ asset('css/administracion.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lobster&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
 
 </head>
 
@@ -14,10 +16,10 @@
         <img class="verticalAmarillo"src="{{ asset('storage/logos/horizontalcolorAmarillo.png') }}" alt="verticalAmarillo"  style="width: 250px"/>
     </div>
     <div class="titulosNav">
-        <h3>Historial Laboral</h3>
-        <p>Aplicativo para gestionar el historial laboral</p>
-        
+        <h3>Sistema de Contratos Gestión Humana</h3>                    
     </div>
 </header>
 @yield('content')
+
+
 </html>

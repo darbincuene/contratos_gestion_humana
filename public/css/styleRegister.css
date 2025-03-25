@@ -2,7 +2,7 @@
   width: 90%; /* Cambiado a porcentaje para que sea más flexible */
   max-width: 400px; /* Limita el ancho máximo */
   max-height: 680px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(10, 10, 10, 0.479);
   padding: 20px;
   border-radius: 10px;
   display: flex;
@@ -10,7 +10,7 @@
   align-items: center;
   gap: 15px;
   margin-top: 50px; /* Reducido para pantallas más pequeñas */
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.411);
   margin: 30px auto;
 }
 

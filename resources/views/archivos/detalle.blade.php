@@ -17,7 +17,9 @@
     @extends('layouts.prueba')
     @section('content')
     <table id="tb_carpetas" class="table table-striped table-bordered" style="width:100%">
-        <div><p>Historial laboral de: {{$datos->subcarpeta->carpeta->nombre}}</p></div>
+        <div>
+            <p>Historial laboral de: {{ $datos->subcarpeta->carpeta->nombre ?? 'Sin nombre' }}</p>
+        </div>
         <thead>
             <tr>
                 {{-- <th>Nombre Subcarpeta</th> --}}

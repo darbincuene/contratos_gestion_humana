@@ -1,76 +1,91 @@
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f4f7fa;
-        margin: 0;
-        padding: 0;
-        height: 100vh;
-    }
 
-    .contenedor-principal {
-        display: grid;
-        place-items: center;
-        height: 100%;
-        padding: 20px;
-    }
 
-    .contenedor-formulario {
-        background-color: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        max-width: 600px;
-        width: 100%;
-        display: grid;
-        gap: 20px;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        /* Esto hace que los elementos se ajusten en filas automáticamente */
-        grid-auto-rows: auto;
-    }
+.contenedor-principal {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+}
 
-    .labels {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
+/* Estilos del formulario */
+.contenedor-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-    .titulo-input {
-        font-size: 16px;
-        color: #333;
-    }
+.labels {
+    display: flex;
+    flex-direction: column;
+}
 
-    input[type="file"] {
-        padding: 8px;
-        border: 2px solid #ddd;
-        border-radius: 4px;
-        background-color: #f9f9f9;
-    }
+.titulo-input {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
 
-    input[type="file"]:focus {
-        border-color: #4d90fe;
-        outline: none;
-    }
+input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f9f9f9;
+    cursor: pointer;
+}
 
-    button.submit-btn {
-        padding: 12px 20px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
+/* Botones */
+#prevBtn
+    {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
 
-    button.submit-btn:hover {
-        background-color: #45a049;
-    }
+#prevBtn
+    :hover {
+    background-color: #0056b3;
+}
 
-    button.submit-btn:active {
-        background-color: #388e3c;
-    }
+.pagination-buttons {
+    display: flex;
+    justify-content: space-between;
+}
 
-    @media (max-width: 600px) {
-        .contenedor-formulario {
-            padding: 15px;
-        }
-    }
+.submit-btn {
+    background-color: #032840;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+#nextBtn{
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+}
+#nextBtn{
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}

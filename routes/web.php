@@ -2,6 +2,7 @@
 use App\Http\Controllers\authscontroller;
 use App\Http\Controllers\archivos\archivosController;
 use Illuminate\Support\Facades\Route;
+use App\Models\carpeta;
 
 
 
@@ -43,12 +44,6 @@ Route::get('/', function () {
     return view('auth.login');
 })->name('login.usuarios');
 
-route::get('/inicio', function(){
-    return view("dashboard.dashboard");
-})->name('inicio');
-
-
-
 
 route::get('/menu', function(){
     return view('dashboard.menu');
@@ -65,5 +60,15 @@ route::get('/editar', function(){
     return view("dashboard.editar");
 })->name('actualizar.archivos');
 
+Route::get('/alert',function(){
+    return view('welcome');
+});
 
 
+Route::get('/ver/cargos', [archivosController::class, 'cargos'])->name('ver.cargos');
+
+Route::get('/filtrar/carpetas/{id}', function ($id) {
+    $archivosC = new archivosController();
+    $cargo = $archivosC->filtroVerCarpeta($id); 
+    return view('tablas.carpeta', compact('cargo'));
+    })->name('filtrar.archivos');

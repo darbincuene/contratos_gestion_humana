@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Planeacion</title>
+    <title>Alert</title>
 
     <!-- Estilos CSS de Bootstrap y DataTables -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -16,14 +16,14 @@
 </head>
 
 <body>
-@extends('layouts.navarprincipal')
+@extends('layouts.prueba')
 @section('content')
 <div class="contenedor">
         
   <div class="cards">
       <div class="cards2">
-          <h1>!LO SENTIMOS¡</h1>
-          <p>No tienes permisos para realizar esta accion.</p>
+          <h1>!Gracias¡</h1>
+          <p>Realizamos tu petición con exito.</p>
         
 
       </div>
@@ -79,8 +79,8 @@ box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
 .cards2{
 padding: 25px;
 border-radius: 10px;
-background: #f7212173;
-border:1px solid #f79a21;
+background: #21c5f7;
+border:1px solid #21c5f7;
 color: #032840;
 font-family: "Signika", sans-serif;
 

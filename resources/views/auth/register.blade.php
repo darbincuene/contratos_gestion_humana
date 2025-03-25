@@ -18,7 +18,7 @@
 @extends('layouts.prueba')
 @section('content')
 
-    <body class="formularys">
+    <body class="formularys" style="background-image: url('{{ asset('storage/logos/FOTO2.png') }}')">
         <div class="contenedors">
             <form action="{{ route('registrar.usuarios') }}" method="POST" class="">
                 @csrf

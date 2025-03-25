@@ -107,7 +107,8 @@ class archivosController extends Controller
             }
         }
 
-        return response()->json(['success' => true, 'message' => 'Archivos subidos correctamente.', 'archivos' => $archivo]);
+        // return response()->json(['success' => true, 'message' => 'Archivos subidos correctamente.', 'archivos' => $archivo]);
+        return view('welcome');
     }
 
     public function detalleCarpetas($id)
@@ -186,7 +187,7 @@ class archivosController extends Controller
 
             return redirect()->route('carpeta')->with('success', 'carpeta eliminado correctamente');
         }
-        return response()->json(['message' => 'carpeta no encontrada'], 404);
+        return view('welcome');
     }
 
 
@@ -200,7 +201,7 @@ class archivosController extends Controller
 
             return redirect()->route('carpeta')->with('success', 'carpeta eliminado correctamente');
         }
-        return response()->json(['message' => 'carpeta no encontrada'], 404);
+        return view('welcome');
     }
     public function visualizarArchivo($id)
     {
@@ -271,4 +272,18 @@ class archivosController extends Controller
 
         return view('archivos.verCarpeta', compact('carpeta', 'subcarpetas'));
     }
+
+    public function filtroVerCarpeta($id)
+    {
+        return carpeta::whereHas('cargo', function ($query) use ($id) {
+            $query->where('id', $id);
+        })->with('cargo')->get();
+    }
+    
+    public function cargos(){
+        $cargos = cargo::all();
+        return view('dashboard.dashboard', compact('cargos'));
+    }
+
+
 }

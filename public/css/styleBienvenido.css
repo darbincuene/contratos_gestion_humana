@@ -2,17 +2,19 @@
 .verticalAmarillo {
     max-width: 100%; 
     width: 400px;
+    height: 100px;
   }
   
   .headePadre {
     display: grid;
     grid-template-columns: auto 1fr;
     background-color: #032840;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="30" cy="30" r="20" fill="rgba(255,255,255,0.3)"/><circle cx="90" cy="80" r="30" fill="rgba(255,255,255,0.2)"/><circle cx="150" cy="40" r="25" fill="rgba(255,255,255,0.3)"/></svg>');
+  
     background-repeat: repeat;
     color: white;
     padding: 10px;
     gap: 10px;
+    
 }
 
   @media (max-width: 768px) {
@@ -48,6 +50,7 @@
   body {
     font-family: 'Poppins', sans-serif;
     background-color: #f8f9fa;
+
   }
   
   /* Sidebar */

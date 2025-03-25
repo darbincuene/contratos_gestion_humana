@@ -9,6 +9,8 @@
 
     <link rel="stylesheet" href="{{ asset('css/subirarchivos.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lobster&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
 
     
@@ -21,17 +23,24 @@
 <body>
 
     <div class="contenedor-principal">
-        <form id="uploadForm" action="{{ route('subir.archivos') }}" method="POST" enctype="multipart/form-data"class="contenedor-formulario">
+        <form id="uploadForm" action="{{ route('subir.archivos') }}" method="POST"
+            enctype="multipart/form-data" class="contenedor-formulario">
             @csrf
             <input type="hidden" name="subcarpeta_id" value="{{ $subcarpetas->id }}">
-            {{-- <input type="hidden" name="usuario_id" value="{{ auth()->id() }}"> <!-- Para identificar al usuario --> --}}
     
-            @foreach ($tiposdoc as $tipo)
-            <div class="labels">
-                <label class="titulo-input" for="files_{{ $tipo->id }}">{{ $tipo->nombre }}</label>
-                <input type="file" name="files[{{ $tipo->id }}]" id="archivo_{{ $tipo->id }}" required>
+            <div id="inputs-container">
+                @foreach ($tiposdoc as $index => $tipo)
+                    <div class="labels input-group page-{{ intdiv($index, 5) }}" style="display: {{ $index < 5 ? 'block' : 'none' }};">
+                        <label class="titulo-input" for="files_{{ $tipo->id }}">{{ $tipo->nombre }}</label>
+                        <input type="file" name="files[{{ $tipo->id }}]" id="archivo_{{ $tipo->id }}" required>
+                    </div>
+                @endforeach
             </div>
-            @endforeach
+    
+            <div class="pagination-buttons">
+                <button type="button" id="prevBtn" class="btn" onclick="changePage(-1)" style="display: none;"><i class="fa-solid fa-backward"></i></button>
+                <button type="button" id="nextBtn" class="btn" onclick="changePage(1)"><i class="fa-solid fa-forward"></i></button>
+            </div>
     
             <button type="submit" class="submit-btn">Subir Archivos</button>
         </form>
@@ -39,4 +48,18 @@
 
 </body>
 @endsection
+<script>
+  let currentPage = 0;
+  const totalPages = {{ intdiv(count($tiposdoc) + 4, 5) }}; 
+  function changePage(step) {
+    document.querySelectorAll(`.page-${currentPage}`).forEach(el => el.style.display = "none");
+    currentPage += step;
+    document.querySelectorAll(`.page-${currentPage}`).forEach(el => el.style.display = "block");
+
+    document.getElementById("prevBtn").style.display = currentPage > 0 ? "inline-block" : "none";
+    document.getElementById("nextBtn").style.display = currentPage < totalPages - 1 ? "inline-block" : "none";
+}
+
+</script>
 </html 
+
