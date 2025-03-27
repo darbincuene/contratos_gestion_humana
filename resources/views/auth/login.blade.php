@@ -9,33 +9,38 @@
     <link rel="icon" type="image" href="{{ asset('storage/logos/ESTRELLA.png') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
-        <link rel="stylesheet" href="{{ asset('css/styleLogin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styleLogin.css') }}">
 
-    
+
 
 </head>
 @extends('layouts.navarprincipal')
 @section('content')
-<body class="formulario" style="background-image: url('{{ asset('storage/logos/FOTO2.png') }}')">
-    <div class="container">
-        <div class="form_wrapper">
-            <form action="{{ route('login.crear') }}" method="POST" class="form_front">
-                @csrf
-                
-                <h1 class="form_details"> Iniciar Sesión</h1>
-                <input type="email" name="email" class="input" placeholder="Correo Electrónico" required>
-                @error('email')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-                <input type="password" name="password" class="input" placeholder="Contraseña" required>
-                @error('password')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-                <button class="btn" type="submit">Iniciar Sesión</button>
-                
-            </form>
+
+    <body class="formulario" style="background-image: url('{{ asset('storage/logos/FOTO2.png') }}')">
+        <div class="container">
+            <div class="form_wrapper">
+                <form action="{{ route('login.crear') }}" method="POST" class="form_front">
+                    @csrf
+
+                    <h1 class="form_details"> Iniciar Sesión</h1>
+                    <input type="email" name="email" class="input" placeholder="Correo Electrónico" required>
+                    @error('email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    <input type="password" name="password" class="input" placeholder="Contraseña" required>
+                    @error('password')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
+                    <button class="botoniniciarsesion" type="submit">
+                        <span class="button-content">Iniciar Sesión</span>
+                    </button>
+
+                </form>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 @endsection
+
 </html>

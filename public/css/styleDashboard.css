@@ -22,13 +22,14 @@
     justify-content: center; 
     position: relative;
     overflow: hidden;
-    transition: background-color 0.3s ease;
-
+    transition: background-color 0.3s ease; 
     width: 220px; 
     height: 220px; 
 }
 
-
+.filtrararchivos{
+    text-decoration: none;
+}
 .docente-btn:hover {
     background-color: #032840;
 }

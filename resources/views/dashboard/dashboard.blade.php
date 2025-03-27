@@ -18,7 +18,7 @@
     <body style="background-image: url('{{ asset('storage/logos/FOTO2.png') }}')">
         <div class="contenedorcargos">
         @foreach ($cargos as $item)
-            <a href="{{ route('filtrar.archivos', $item->id) }}">
+            <a class="filtrararchivos" href="{{ route('filtrar.archivos', $item->id) }}">
                 <div class="botones-inicio-dashboard">
                     <button type="submit" class="docente-btn">
                         <img src="{{ asset('imagenes/profesor.png') }}" alt="Docente" class="boton-icon docente-icon">

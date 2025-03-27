@@ -16,7 +16,7 @@
         <img class="verticalAmarillo"src="{{ asset('storage/logos/horizontalcolorAmarillo.png') }}" alt="verticalAmarillo"  style="width: 250px"/>
     </div>
     <div class="titulosNav">
-        <h3>Sistema de Contratos Gestión Humana</h3>                    
+        <h3 class="linea-abajo-titulo">Sistema de Contratos Gestión Humana</h3>                    
     </div>
 </header>
 @yield('content')

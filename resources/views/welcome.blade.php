@@ -79,7 +79,7 @@ box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
 .cards2{
 padding: 25px;
 border-radius: 10px;
-background: #21c5f7;
+background: #4dc7ec;
 border:1px solid #21c5f7;
 color: #032840;
 font-family: "Signika", sans-serif;

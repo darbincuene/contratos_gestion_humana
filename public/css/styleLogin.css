@@ -25,7 +25,6 @@
   .form_details {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 20px;
     color: rgb(0, 0, 0);
   }
   
@@ -39,18 +38,60 @@
     background-color: #032840;
   }
   
-  .btn {
+  /* .botoniniciarsesion {
     width: 50%;
     padding: 10px;
-    background: #032840;;
+    background: #032840;
     border: none;
     color: white;
     font-size: 1.2rem;
     border-radius: 5px;
+    margin: 20px ;
+  } */
+
+  .botoniniciarsesion {
+    position: relative;
+    overflow: hidden;
+    height: 3rem;
+    padding: 0 2rem;
+    border-radius: 10px;
+    background: #032840;
+    background-size: 400%;
+    color: #fff;
+    /* width: 150px; */
+    border: none;
     cursor: pointer;
-    transition: background 0.3s;
-    margin: 20px auto;
+    
   }
+
+  
+  .botoniniciarsesion:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .button-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .botoniniciarsesion::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    background: linear-gradient(
+      82.3deg,
+      rgba(51, 51, 51, 1) 10.8%,
+      rgba(15, 59, 83, 1) 94.3%
+    );
+    transition: all 0.475s;
+  }
+  
   /* Adaptabilidad para móviles */
   @media (max-width: 480px) {
     .form_wrapper {

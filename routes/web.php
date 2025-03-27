@@ -6,7 +6,7 @@ use App\Models\carpeta;
 
 
 
-
+ 
 Route::get('/registro/usuarios',[authscontroller::class, 'vistaregistrar'])->name('ver.usuarios');
 Route::post('/registro',[authscontroller::class, 'registrarusuario'])->name('registrar.usuarios');
 Route::post('/login',[authscontroller::class, 'login'])->name('login.crear');
@@ -32,12 +32,6 @@ Route::delete('/eliminar/subcarpeta/{id}', [archivosController::class, 'eliminar
 
 Route::get('/compartir/carpeta/{id}', [archivosController::class, 'compartirCarpeta'])->name('compartir.carpeta');   
 Route::get('/compartir/carpeta/ver/{token}', [archivosController::class, 'verCarpeta'])->name('ver.carpeta');
-
-
-
-
-
-
 
 
 Route::get('/', function () {

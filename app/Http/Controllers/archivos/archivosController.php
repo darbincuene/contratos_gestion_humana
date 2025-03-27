@@ -7,6 +7,7 @@ use App\Models\archivo;
 use App\Models\cargararchivo;
 use App\Models\cargo;
 use App\Models\carpeta;
+use App\Models\User;
 use App\Models\ShareFolder;
 use App\Models\subcarpeta;
 use App\Models\tipodocumento;
@@ -15,6 +16,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use ZipArchive;
+use Illuminate\Support\Facades\Auth;
 
 class archivosController extends Controller
 {
@@ -31,13 +33,31 @@ class archivosController extends Controller
         return view('archivos.crearCarpeta', compact('cargo'));
     }
 
-    public function vistasubirarchivos($id)
-    {
-        $tiposdoc = tipodocumento::all();
-        $subcarpetas = subcarpeta::findOrFail($id);
+    // public function vistasubirarchivos($id)
+    // {
+    //     $tiposdoc = tipodocumento::all();
+    //     $subcarpetas = subcarpeta::findOrFail($id);
 
-        return view('archivos.subirArchivos', compact('tiposdoc', 'subcarpetas'));
+    //     return view('archivos.subirArchivos', compact('tiposdoc', 'subcarpetas'));
+    // }
+
+    public function vistasubirarchivos($id)
+{
+    $subcarpetas = Subcarpeta::findOrFail($id);
+
+    $carpeta = $subcarpetas->carpeta; 
+
+    if ($carpeta && $carpeta->cargo_id == 1) { 
+        $excluir = [26, 27]; 
+        $tiposdoc = Tipodocumento::whereNotIn('id', $excluir)->get();
+    } else {
+        $tiposdoc = Tipodocumento::all();
     }
+
+    return view('archivos.subirArchivos', compact('tiposdoc', 'subcarpetas'));
+}
+
+
     public function crearCarpeta(Request $request)
     {
         // dd($request->toArray());
@@ -68,6 +88,7 @@ class archivosController extends Controller
 
     public function subirArchivos(Request $request)
     {
+        $user = Auth::user();
 
         // dd($request->toArray());
         // $tipo_documento_id = $request->input('tipo_documento');
@@ -99,11 +120,12 @@ class archivosController extends Controller
                     'tipo_documento_id' => $tipo_documento_id,
                 ]);
                 // dd($archivo);
-                cargararchivo::create([
-                    'usuario_id' => 1,
+                $cargar_archv = cargararchivo::create([
+                    'usuario_id' => $user->id,
                     'archivo_id' => $archivo->id,
                     'fecha_subida' => Carbon::now(),
                 ]);
+                // dd($cargar_archv);
             }
         }
 
