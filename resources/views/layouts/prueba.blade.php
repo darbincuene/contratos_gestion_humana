@@ -53,7 +53,10 @@
                     <i class="fa-solid fa-folder-plus"></i> Crear Carpetas
                 </a>
                 <a class="d-block py-2 px-3 sidebar-link" href="{{ route('ver.usuarios') }}">
-                    <i class="fa-solid fa-user-plus"></i> Añadir ususarios
+                    <i class="fa-solid fa-user-plus"></i> Añadir Usuarios
+                </a>
+                <a class="d-block py-2 px-3 sidebar-link" href="{{ route('cerrar.sesion') }}">
+                    <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
                 </a>
 
 
@@ -83,7 +86,10 @@
                                     <i class="fa-solid fa-folder-plus"></i> Crear Carpetas
                                 </a>
                                 <a class="d-block py-2 px-3 sidebar-link" href="{{ route('ver.usuarios') }}">
-                                    <i class="fa-solid fa-user-plus"></i> Añadir ususarios
+                                    <i class="fa-solid fa-user-plus"></i> Añadir Usuarios
+                                </a>
+                                <a class="d-block py-2 px-3 sidebar-link" href="{{ route('cerrar.sesion') }}">
+                                    <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
                                 </a>
                         </ul>
                     </div>

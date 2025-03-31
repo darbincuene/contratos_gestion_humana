@@ -159,7 +159,6 @@ class archivosController extends Controller
         if (!file_exists($rutaArchivo)) {
             return response()->json(['message' => 'El archivo no existe en el servidor.'], 404);
         }
-
         return response()->download($rutaArchivo, $archivos->nombre_archivo);
     }
 
@@ -199,7 +198,7 @@ class archivosController extends Controller
 
 
 
-    public function eliminarArchivo($id)
+    public function eliminarCarpeta($id)
     {
 
         $carpeta = carpeta::findOrFail($id);
@@ -307,5 +306,16 @@ class archivosController extends Controller
         return view('dashboard.dashboard', compact('cargos'));
     }
 
+    public function eliminarArchivo($id)
+    {
 
+        $archivo = archivo::findOrFail($id);
+        // $datos=
+        $archivo->delete();
+        if (!$archivo) {
+
+            return redirect()->route('delete.archivos')->with('success', 'archivo eliminado correctamente');
+        }
+        return view('welcome');
+    }
 }

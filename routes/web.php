@@ -8,6 +8,7 @@ use App\Models\carpeta;
 
 
 Route::middleware(authMiddleware::class)->group(function() {
+    Route::get('/cerrar/sesion',[authscontroller::class,'cerrarsesion'])->name('cerrar.sesion');
     
     Route::post('/crear/carpeta', [archivosController::class, 'crearCarpeta'])->name('crear.carpeta');
     Route::get('/carpetas', [archivosController::class, 'index'])->name('carpeta');
@@ -23,8 +24,10 @@ Route::middleware(authMiddleware::class)->group(function() {
     Route::get('/ver/archivo/{id}', [archivosController::class, 'visualizarArchivo'])->name('ver.archivo');
 
     // Route::post('/eliminar/carpeta/{id}',[archivosController::class,'eliminarArchivo'])->name('eliminar.archivo');
-    Route::delete('/eliminar/carpeta/{id}', [archivosController::class, 'eliminarArchivo'])->name('eliminar.archivo');
+    Route::delete('/eliminar/carpeta/{id}', [archivosController::class, 'eliminarCarpeta'])->name('eliminar.archivo');
     Route::delete('/eliminar/subcarpeta/{id}', [archivosController::class, 'eliminarSubcarpeta'])->name('eliminar.subcarpeta');
+    Route::delete('/eliminar/archivo/{id}', [archivosController::class, 'eliminarArchivo'])->name('delete.archivo');
+
 
 
     Route::get('/compartir/carpeta/{id}', [archivosController::class, 'compartirCarpeta'])->name('compartir.carpeta');

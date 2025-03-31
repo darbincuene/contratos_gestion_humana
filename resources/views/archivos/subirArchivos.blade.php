@@ -32,7 +32,7 @@
                 @foreach ($tiposdoc as $index => $tipo)
                     <div class="labels input-group page-{{ intdiv($index, 5) }}" style="display: {{ $index < 5 ? 'block' : 'none' }};">
                         <label class="titulo-input" for="files_{{ $tipo->id }}">{{ $tipo->nombre }}</label>
-                        <input type="file" name="files[{{ $tipo->id }}]" id="archivo_{{ $tipo->id }}" required>
+                        <input type="file" name="files[{{ $tipo->id }}]" id="archivo_{{ $tipo->id }}" >
                     </div>
                 @endforeach
             </div>

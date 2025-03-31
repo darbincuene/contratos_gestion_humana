@@ -51,9 +51,8 @@
 
                                     <button type="submit" style="border:none; background:none; ">
                                         <i class="fa-solid fa-trash"
-                                            style="color:rgba(255, 0, 0, 0.726);
-                                            title="
-                                            Eliminar"></i>
+                                            style="color:rgba(255, 0, 0, 0.726)";
+                                            title="Eliminar"></i>
                                     </button>
                                 </form>
 

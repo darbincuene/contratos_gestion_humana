@@ -38,16 +38,18 @@
                             <a><i class="fa-solid fa-eye fa-lg text-primary"
                                     onclick="previsualizarArchivo({{ $item->id }})" title="Ver archivo"
                                     aria-hidden="true"></i></a>
-                            <form action="{{ route('eliminar.subcarpeta', $datos->subcarpeta->id) }}" method="POST">
-                                @method('DELETE')
-                                @csrf
-                                <button type="submit" style="border:none; background:none; ">
-                                    <i class="fa-solid fa-trash"
-                                        style="color:rgba(255, 0, 0, 0.726);
-                                        title="
-                                        Eliminar"></i>
-                                </button>
-                            </form>
+
+                                <form action="{{ route('delete.archivo', $item->id) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+
+                                    <button type="submit" style="border:none; background:none; ">
+                                        <i class="fa-solid fa-trash"
+                                            style="color:rgba(255, 0, 0, 0.726)";
+                                            title="Eliminar"></i>
+                                    </button>
+                                </form>
+
                         </td>
 
                     </tr>
@@ -76,3 +78,4 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.datatables.net/2.1.3/js/dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/2.1.3/js/dataTables.bootstrap5.min.js"></script>
+
