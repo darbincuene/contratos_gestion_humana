@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('historial_archivos', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha_movimiento');
+            // $table->date('fecha_movimiento');
             $table->string('accion');
             $table->unsignedBigInteger('archivo_id')->nullable()->onDelete('cascade');
             $table->unsignedBigInteger('usuario_id')->nullable()->onDelete('cascade');

@@ -26,7 +26,13 @@ Route::middleware(authMiddleware::class)->group(function() {
     // Route::post('/eliminar/carpeta/{id}',[archivosController::class,'eliminarArchivo'])->name('eliminar.archivo');
     Route::delete('/eliminar/carpeta/{id}', [archivosController::class, 'eliminarCarpeta'])->name('eliminar.archivo');
     Route::delete('/eliminar/subcarpeta/{id}', [archivosController::class, 'eliminarSubcarpeta'])->name('eliminar.subcarpeta');
+        // actualizar no lo vaya a borrar 
+
+    Route::put('/actualizar/archivo',[archivosController::class,'editararchivo'])->name('actualizar.archivo');
+    Route::get('/actualizar/archio/{id}',[archivosController::class,'vistaactualizar'])->name('vista.actualizar');
+
     Route::delete('/eliminar/archivo/{id}', [archivosController::class, 'eliminarArchivo'])->name('delete.archivo');
+
 
 
 
@@ -57,5 +63,10 @@ Route::get('/', function () {
 
 Route::post('/login', [authscontroller::class, 'login'])->name('login.crear');
 
+// route::get('/auditoria',function(){
+//     return view('archivos.auditoria');
+// })->name('auditoria');
+
+Route::get('/auditoria/{id}', [archivosController::class, 'auditar'])->name('auditoria');
 
 

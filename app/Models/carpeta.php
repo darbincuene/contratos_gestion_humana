@@ -16,7 +16,7 @@ class carpeta extends Model
     }
 
     public function subcarpeta(){
-        return $this->hasOne(subcarpeta::class,'carpeta_id');
+        return $this->hasMany(subcarpeta::class,'carpeta_id');
     }
 }
  

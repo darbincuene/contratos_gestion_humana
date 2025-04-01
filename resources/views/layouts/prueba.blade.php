@@ -25,7 +25,7 @@
 
     <header class="headePadre">
         <div class="imagen">
-            <img class="verticalAmarillo"src="{{ asset('storage/logos/horizontalcolorAmarillo.png') }}"
+            <img class="verticalAmarillo"src="{{ asset('storage/logos/horizontalfullcolor.png') }}"
                 style="width: 250px" alt="verticalAmarillo" />
         </div>
         <div class="titulosNav">
@@ -47,7 +47,7 @@
                     <i class="fa-solid fa-house"></i> Inicio
                 </a>
                 <a class="d-block py-2 px-3 sidebar-link" href="{{ route('todas.carpetas') }}">
-                    <i class="fa-solid fa-folder-open"></i> Ver Carpetas
+                    <i class="fa-solid fa-folder-open"></i> Auditoria
                 </a>
                 <a class="d-block py-2 px-3 sidebar-link" href="{{ route('carpeta') }}">
                     <i class="fa-solid fa-folder-plus"></i> Crear Carpetas
@@ -80,7 +80,7 @@
                                     <i class="fa-solid fa-house"></i> Inicio
                                 </a>
                                 <a class="d-block py-2 px-3 sidebar-link">
-                                    <i class="fa-solid fa-folder-open"></i> Ver Carpetas
+                                    <i class="fa-solid fa-folder-open"></i> Auditoria
                                 </a>
                                 <a class="d-block py-2 px-3 sidebar-link" href="{{ route('carpeta') }}">
                                     <i class="fa-solid fa-folder-plus"></i> Crear Carpetas

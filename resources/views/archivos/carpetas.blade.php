@@ -19,7 +19,7 @@
     @extends('layouts.prueba')
     @section('content')
         <div class="container-titulo">
-            <h1 class="titulocarpetas">Carpetas</h1>
+            <h1 class="titulocarpetas">Auditora</h1>
         </div>
 
         <div style="background: rgba(255, 255, 255, 0.76); font-weight: bold; border-radius:10px; padding:10px">
@@ -37,9 +37,9 @@
                             <td>{{ $item->nombre }}</td>
                             <td>{{ $item->cargo->nombre }}</td>
                             <td class="iconos-carpetas">
-                                <a href="{{ route('detalle.archivos', $item->id) }}"><i class="fa-solid fa-eye "
+                                <a href="{{ route('auditoria', $item->id) }}"><i class="fa-solid fa-eye "
                                         title="Ver"></i></a>
-                                <a href="{{ route('descargar.carpeta', $item->id) }}"> <i
+                                {{-- <a href="{{ route('descargar.carpeta', $item->id) }}"> <i
                                         class="fa-solid fa-cloud-arrow-down" title="Descargar Carpeta"></i></a>
 
                                 <a href="{{ route('compartir.carpeta', $item->id) }}"> <i class="fa-solid fa-share-nodes"
@@ -54,7 +54,7 @@
                                             style="color:rgba(255, 0, 0, 0.726)";
                                             title="Eliminar"></i>
                                     </button>
-                                </form>
+                                </form> --}}
 
 
 

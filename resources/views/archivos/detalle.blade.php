@@ -49,6 +49,7 @@
                                             title="Eliminar"></i>
                                     </button>
                                 </form>
+                                <a href="{{route('vista.actualizar',$item->id)}}">editar</a>
 
                         </td>
 

@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\ShareFolder;
 use App\Models\subcarpeta;
 use App\Models\tipodocumento;
+use App\Models\historialarchivo;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -42,20 +43,20 @@ class archivosController extends Controller
     // }
 
     public function vistasubirarchivos($id)
-{
-    $subcarpetas = Subcarpeta::findOrFail($id);
+    {
+        $subcarpetas = Subcarpeta::findOrFail($id);
 
-    $carpeta = $subcarpetas->carpeta; 
+        $carpeta = $subcarpetas->carpeta;
 
-    if ($carpeta && $carpeta->cargo_id == 1) { 
-        $excluir = [26, 27]; 
-        $tiposdoc = Tipodocumento::whereNotIn('id', $excluir)->get();
-    } else {
-        $tiposdoc = Tipodocumento::all();
+        if ($carpeta && $carpeta->cargo_id == 1) {
+            $excluir = [26, 27];
+            $tiposdoc = Tipodocumento::whereNotIn('id', $excluir)->get();
+        } else {
+            $tiposdoc = Tipodocumento::all();
+        }
+
+        return view('archivos.subirArchivos', compact('tiposdoc', 'subcarpetas'));
     }
-
-    return view('archivos.subirArchivos', compact('tiposdoc', 'subcarpetas'));
-}
 
 
     public function crearCarpeta(Request $request)
@@ -89,6 +90,8 @@ class archivosController extends Controller
     public function subirArchivos(Request $request)
     {
         $user = Auth::user();
+        $accion = "Crear";
+        // dd($accion);
 
         // dd($request->toArray());
         // $tipo_documento_id = $request->input('tipo_documento');
@@ -125,13 +128,71 @@ class archivosController extends Controller
                     'archivo_id' => $archivo->id,
                     'fecha_subida' => Carbon::now(),
                 ]);
-                // dd($cargar_archv);
+
+                // dd($historial_historialarchivo);
             }
+            $historial_historialarchivo = historialarchivo::create([
+                'accion' => $accion,
+                'archivo_id' => $archivo->id,
+                'usuario_id' => $user->id,
+                'carpeta_id' => $request->subcarpeta_id,
+            ]);
         }
 
         // return response()->json(['success' => true, 'message' => 'Archivos subidos correctamente.', 'archivos' => $archivo]);
         return view('welcome');
     }
+    public function vistaactualizar($id)
+    {
+        $archivo = archivo::find($id);
+        // dd($archivo->toArray());
+
+        return view('archivos.actualizarArchivo',compact('archivo'));
+    }
+
+
+    public function editararchivo(Request $request)
+    {
+        $user = Auth::user();
+        $accion = "Archivo actualizado";
+        // dd($request);
+        $request->validate([
+            'archivo' => 'required|file|mimes:jpg,png,pdf,docx|max:5120', 
+        ]);
+        // $archivo = archivo::find($id);
+
+        // if (!$archivo) {
+        //     return response()->json(['error' => 'El archivo no existe.'], 404);
+        // }
+
+        if (Storage::exists('public/' . $archivo->ruta_archivo)) {
+            Storage::delete('public/' . $archivo->ruta_archivo);
+        }
+
+        $file = $request->file('file');
+        $nombreArchivo = time() . '_' . $file->getClientOriginalName();
+        $tipoMime = $file->getClientMimeType();
+        $rutaArchivo = $file->storeAs('archivos', $nombreArchivo, 'public');
+
+        $archivo->update([
+            'nombre_archivo' => $nombreArchivo,
+            'tipo_archivo' => $tipoMime,
+            'ruta_archivo' => $rutaArchivo,
+        ]);
+        $historial_historialarchivo = historialarchivo::create([
+            'accion' => $accion,
+            'archivo_id' => $archivo->id,
+            'usuario_id' => $user->id,
+            'carpeta_id' => $request->subcarpeta_id,
+        ]);
+
+
+
+        return response()->json(['success' => true, 'message' => 'Archivo actualizado correctamente.']);
+    }
+
+
+
 
     public function detalleCarpetas($id)
     {
@@ -282,7 +343,7 @@ class archivosController extends Controller
     //  ver el contenido de la carpeta comparatida
     public function verCarpeta($token)
     {
-        $sharedFolder = ShareFolder::where('token', $token)->first();//esto hace es que busquemos en la base de datos el token recibido
+        $sharedFolder = ShareFolder::where('token', $token)->first(); //esto hace es que busquemos en la base de datos el token recibido
 
         if (!$sharedFolder || $sharedFolder->isExpired()) {
             return response()->json(['message' => 'El enlace ha expirado o no existe'], 404);
@@ -300,8 +361,9 @@ class archivosController extends Controller
             $query->where('id', $id);
         })->with('cargo')->get();
     }
-    
-    public function cargos(){
+
+    public function cargos()
+    {
         $cargos = cargo::all();
         return view('dashboard.dashboard', compact('cargos'));
     }
@@ -317,5 +379,13 @@ class archivosController extends Controller
             return redirect()->route('delete.archivos')->with('success', 'archivo eliminado correctamente');
         }
         return view('welcome');
+    }
+
+    public function auditar($id)
+    {
+
+        $auditoria = historialarchivo::with(['carpeta.cargo', 'usuario'])->findOrFail($id);
+        // dd($auditoria->toArray());
+        return view('archivos.auditoria', compact('auditoria'));
     }
 }

@@ -13,7 +13,7 @@
 
 <header class="headePadre">
     <div>
-        <img class="verticalAmarillo"src="{{ asset('storage/logos/horizontalcolorAmarillo.png') }}" alt="verticalAmarillo"  style="width: 250px"/>
+        <img class="verticalAmarillo"src="{{ asset('storage/logos/horizontalfullcolor.png') }}" alt="verticalAmarillo"  style="width: 250px"/>
     </div>
     <div class="titulosNav">
         <h3 class="linea-abajo-titulo">Sistema de Contratos Gestión Humana</h3>                    
