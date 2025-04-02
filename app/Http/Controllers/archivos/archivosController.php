@@ -151,24 +151,20 @@ class archivosController extends Controller
     }
 
 
-    public function editararchivo(Request $request)
+    public function editararchivo(Request $request )
     {
         $user = Auth::user();
         $accion = "Archivo actualizado";
+       
+        $archivo_id = $request->input('archivo_id');
+        
         // dd($request);
+
         $request->validate([
-            'archivo' => 'required|file|mimes:jpg,png,pdf,docx|max:5120', 
+            'file' => 'required|file|mimes:jpg,png,pdf,docx|max:5120', 
         ]);
-        // $archivo = archivo::find($id);
-
-        // if (!$archivo) {
-        //     return response()->json(['error' => 'El archivo no existe.'], 404);
-        // }
-
-        if (Storage::exists('public/' . $archivo->ruta_archivo)) {
-            Storage::delete('public/' . $archivo->ruta_archivo);
-        }
-
+        // dd($request);
+        $archivo= archivo::find($archivo_id);
         $file = $request->file('file');
         $nombreArchivo = time() . '_' . $file->getClientOriginalName();
         $tipoMime = $file->getClientMimeType();
@@ -179,13 +175,7 @@ class archivosController extends Controller
             'tipo_archivo' => $tipoMime,
             'ruta_archivo' => $rutaArchivo,
         ]);
-        $historial_historialarchivo = historialarchivo::create([
-            'accion' => $accion,
-            'archivo_id' => $archivo->id,
-            'usuario_id' => $user->id,
-            'carpeta_id' => $request->subcarpeta_id,
-        ]);
-
+        // dd($archivo);
 
 
         return response()->json(['success' => true, 'message' => 'Archivo actualizado correctamente.']);

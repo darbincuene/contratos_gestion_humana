@@ -54,7 +54,6 @@ Route::middleware(authMiddleware::class)->group(function() {
     })->name('filtrar.archivos');
 
     
-    
 });
 
 Route::get('/', function () {

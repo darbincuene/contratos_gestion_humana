@@ -8,15 +8,19 @@
 </head>
 <body>
     <div>
-        <form action="{{route('actualizar.archivo')}}" method="POST">
+        <form action="{{route('actualizar.archivo')}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <label for="nombre">{{$archivo->nombre_archivo}}</label>
-            <input name="archivo" type="file" value="">
-            <button type="submit">actualizar</button>
-
+            <input type="hidden" name="archivo_id" value="{{$archivo->id}}">
+        
+            <label for="file">{{$archivo->nombre_archivo}}</label>
+            <input name="file" type="file" id="file">
+        
+            <button type="submit">Actualizar</button>
         </form>
     </div>
+
+    
     
 </body>
 </html>
