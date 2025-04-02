@@ -68,4 +68,7 @@ Route::post('/login', [authscontroller::class, 'login'])->name('login.crear');
 
 Route::get('/auditoria/{id}', [archivosController::class, 'auditar'])->name('auditoria');
 
+Route::get('/anexos/{id}', [archivosController::class, 'archivosanexos'])->name('anexos');
+
+
 

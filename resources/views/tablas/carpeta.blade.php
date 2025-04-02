@@ -43,16 +43,14 @@
                                         class="fa-solid fa-cloud-arrow-down" title="Descargar Carpeta"></i></a>
 
                                 <a href="{{ route('compartir.carpeta', $item->id) }}"> <i class="fa-solid fa-share-nodes" title="Compartir Carpeta"></i></a>
-
                                 <form action="{{ route('eliminar.archivo', $item->id) }}" method="POST">
                                     @method('DELETE')
                                     @csrf
 
                                     <button type="submit" style="border:none; background:none; ">
                                         <i class="fa-solid fa-trash"
-                                            style="color:rgba(255, 0, 0, 0.726);
-                                            title="
-                                            Eliminar"></i>
+                                            style="color:rgba(255, 0, 0, 0.726)";
+                                            title="Eliminar"></i>
                                     </button>
                                 </form>
 

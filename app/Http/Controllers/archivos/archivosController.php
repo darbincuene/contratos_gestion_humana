@@ -34,6 +34,8 @@ class archivosController extends Controller
         return view('archivos.crearCarpeta', compact('cargo'));
     }
 
+  
+
     // public function vistasubirarchivos($id)
     // {
     //     $tiposdoc = tipodocumento::all();
@@ -378,4 +380,11 @@ class archivosController extends Controller
         // dd($auditoria->toArray());
         return view('archivos.auditoria', compact('auditoria'));
     }
+    public function archivosanexos($id){
+        $subcarpetas = Subcarpeta::findOrFail($id);
+        $carpeta = $subcarpetas->carpeta;
+        // dd($carpeta);
+        return view('archivos.subiranexos',compact('carpeta'));
+    }
+    
 }

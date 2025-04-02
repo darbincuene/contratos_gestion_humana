@@ -1,0 +1,75 @@
+.contenedor-actualizar{
+   display: flex;
+   justify-content:center;
+   flex-direction: column;
+   gap: 8px;
+   padding: 30px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   width:350px;
+   /* background-color: aqua; */
+   border-radius: 8px;
+}
+.archivolabel{
+    text-align: center;
+}
+
+.textoactualizar{
+    text-align: center;
+}
+
+.botoniniciarsesion {
+    position: relative;
+    overflow: hidden;
+    height: 3rem;
+    padding: 0 2rem;
+    border-radius: 10px;
+    background: #032840;
+    background-size: 400%;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    
+  }
+
+.contenedor-mayor-actualizar{
+    display: grid;
+    place-self: center;
+    grid-template-columns: column;
+    place-content: center;
+    
+  }
+
+  
+  .botoniniciarsesion:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .button-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .botoniniciarsesion::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    background: linear-gradient(
+      82.3deg,
+      rgba(51, 51, 51, 1) 10.8%,
+      rgba(15, 59, 83, 1) 94.3%
+    );
+    transition: all 0.475s;
+  }
+  
+
+.div-botonactualizar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
