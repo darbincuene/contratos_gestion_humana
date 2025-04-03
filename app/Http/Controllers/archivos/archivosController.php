@@ -380,11 +380,35 @@ class archivosController extends Controller
         // dd($auditoria->toArray());
         return view('archivos.auditoria', compact('auditoria'));
     }
-    public function archivosanexos($id){
-        $subcarpetas = Subcarpeta::findOrFail($id);
-        $carpeta = $subcarpetas->carpeta;
-        // dd($carpeta);
-        return view('archivos.subiranexos',compact('carpeta'));
+ 
+    public function docmentosfaltantes($id)
+    {
+        $docsfaltantes = tipodocumento::whereDoesntHave('archivos')->get();
+        return view('archivos.anexos', compact('docsfaltantes'));
+    }
+    public function guardardocsfaltantes(Request $request){
+        // dd($request);
+        if ($request->hasFile('files')) {
+            foreach ($request->file('files') as $file) {
+                $nombreArchivo = time() . '_' . $file->getClientOriginalName();
+                $tipoMime = $file->getClientMimeType();
+
+                $archivo = new Archivo();
+                $archivo->nombre_archivo = $nombreArchivo;
+                $archivo->tipo_archivo = $tipoMime;
+                $archivo->ruta_archivo = $file->store('archivos'); 
+                $archivo->subcarpeta_id = '5';  //ID DE SBCARPETA MANUALMENTE
+                $archivo->tipo_documento_id = $request->documentos_ids;
+                $archivo->save();
+            }
+        } else {
+            return back()->with('error', 'No se subió ningún archivo.');
+        }        
+        return response()->json([
+            'success' => true,
+            'message' => 'guardado con exito!!',
+        ]);
+        
     }
     
 }

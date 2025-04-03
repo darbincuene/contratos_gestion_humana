@@ -17,7 +17,7 @@
 @extends('layouts.navarprincipal')
 @section('content')
 
-    <body class="formulario" style="background-image: url('{{ asset('storage/logos/FOTO2.png') }}')">
+    <body class="formulario" >
         <div class="container">
             <div class="form_wrapper">
                 <form action="{{ route('login.crear') }}" method="POST" class="form_front">

@@ -21,12 +21,12 @@
 
 </head>
 
-<body>
+<body >
 
     <header class="headePadre">
         <div class="imagen">
-            <img class="verticalAmarillo"src="{{ asset('storage/logos/horizontalfullcolor.png') }}"
-                style="width: 250px" alt="verticalAmarillo" />
+            <img class="verticalAmarillo"src="{{ asset('storage/logos/horizontalfullcolor.png') }}" style="width: 250px"
+                alt="verticalAmarillo" />
         </div>
         <div class="titulosNav">
             <h3 class="linea-abajo-titulo">Sistema de Contratos Gestión Humana</h3>
@@ -37,7 +37,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <div class="col-12 col-md-3 sidebar vh-100 d-none d-md-block"
+            <div class="col-12 col-md-3 sidebar  d-none d-md-block"
                 style="color: #333; box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2); background-color: #f8f9fa;">
                 <h4 class="text-center py-3">
                     <i class="fas fa-tachometer-alt me-2"></i> <!-- Logo de dashboard -->
@@ -102,7 +102,7 @@
             </main>
         </div>
     </div>
-    <footer class="text-center py-5 ">
+    <footer class="text-center py-5">
 
         <p class="mb-2">
             Institución de Educación Superior sujeta a inspección y vigilancia por el Ministerio de Educación Nacional –

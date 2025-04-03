@@ -15,8 +15,8 @@
 @extends('layouts.prueba')
 @section('content')
 
-    <body style="background-image: url('{{ asset('storage/logos/FOTO2.png') }}')">
-        <div class="contenedorcargos">
+    <body style=" background-image: url('{{ asset('storage/logos/FOTO2.png') }}')">
+        <div class="contenedorcargos" style="padding:50px;">
         @foreach ($cargos as $item)
             <a class="filtrararchivos" href="{{ route('filtrar.archivos', $item->id) }}">
                 <div class="botones-inicio-dashboard">

@@ -25,7 +25,6 @@
     transition: width 0.3s ease-in-out;
 
   }
-  
   .headePadre {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -54,14 +53,20 @@
     text-align: center;
     padding: 10px; 
   }
-  footer {
-    /* background: linear-gradient(to right, #032840, #1B5DA4); */
+
+
+
+
+footer {
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="40" cy="40" r="20" fill="rgba(255,255,255,0.2)"/><circle cx="120" cy="90" r="35" fill="rgba(255,255,255,0.15)"/><circle cx="170" cy="50" r="25" fill="rgba(255,255,255,0.25)"/></svg>'),
     linear-gradient(135deg, #032840 0%, #1B5DA4 100%);
     color: white;
     text-align: center;
-    padding: 15px; 
-  }
+    padding: 15px;
+    /* margin-top: 18vh; */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+}
+
 
   @media (max-width: 480px) {
     .verticalAmarillo {
@@ -71,12 +76,7 @@
   
   
   
-  /* Estilos generales */
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f8f9fa;
-
-  }
+  
   
   /* Sidebar */
   .sidebar {

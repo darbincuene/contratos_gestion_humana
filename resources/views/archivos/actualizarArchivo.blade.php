@@ -12,7 +12,7 @@
 @extends('layouts.prueba')
 @section('content')
 
-    <body class="actualizarbody">
+    <body style="background-image: url('{{ asset('storage/logos/FOTO2.png') }}')">
 
         <div class="contenedor-mayor-actualizar">
             {{-- <div class="divsubmayor"> --}}

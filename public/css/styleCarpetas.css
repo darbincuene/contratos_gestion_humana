@@ -1,9 +1,8 @@
 
 
 .iconos-carpetas{
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .container-titulo {

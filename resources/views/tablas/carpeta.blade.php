@@ -37,6 +37,8 @@
                             <td>{{ $item->nombre }}</td>
                             <td>{{ $item->cargo->nombre }}</td>
                             <td class="iconos-carpetas">
+                                <a href="{{route('anexos', $item->id)}}" title="Añadir archivos" ><i class="fa-solid fa-folder-plus"></i></a>
+
                                 <a href="{{ route('detalle.archivos', $item->id) }}"><i class="fa-solid fa-eye "
                                         title="Ver"></i></a>
                                 <a href="{{ route('descargar.carpeta', $item->id) }}"> <i

@@ -5,7 +5,7 @@ body {
     padding: 0; /* Elimina el padding por defecto del body */
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+    /* min-height: 100vh; Asegura que el body ocupe al menos toda la altura de la ventana */
 }
 
 .crearCarpeta {
@@ -14,9 +14,18 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
     max-width: 500px;
-    text-align: center;
-    margin: 50px auto;
+}
+
+.div-invisible{
+  height: 75vh;
+  display: grid;
+  place-items: center;
 }
 .prueba{
     display: flex;
@@ -26,20 +35,20 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    
 }
 .inputplaceholder::placeholder{
     color: white;
 }
 .carpeta input {
     
-    width: 320px;
+    /* width: 320px; */
     padding: 10px;
     background-color: #032840;
-    
-    box-shadow: none;
     border: none;
     border-radius: 4px;
     z-index: 10;
+    display: grid;
 }
 
 .cargo {
@@ -74,7 +83,11 @@ form {
     cursor: pointer;
     
   }
-
+.divbotoncarpetas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
   
   .button:hover::before {
     transform: scaleX(1);
@@ -103,3 +116,10 @@ form {
     transition: all 0.475s;
   }
   
+.inputplaceholder{
+  width: 300px;
+  color: white;
+}
+#cargosselect{
+  width: 300px;
+}
