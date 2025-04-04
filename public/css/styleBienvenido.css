@@ -165,3 +165,10 @@ footer {
   /* Aplicar el filtro de desenfoque */
   /* filter: blur(5px); */
 }
+html{
+  height: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+}

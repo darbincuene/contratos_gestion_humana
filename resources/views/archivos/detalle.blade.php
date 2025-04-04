@@ -17,7 +17,7 @@
 
 @extends('layouts.prueba')
 @section('content')
-<body style="background-image: url('{{ asset('storage/logos/FOTO2.png') }}')">
+<body style="background-image: url('{{ asset('storage/logos/FOTO2.png') }}'); background-repeat: no-repeat; background-size: cover; background-position: center; background-attachment: fixed;">
    
         <div class="container-titulo">
             <p style="color: white; font-size:30px">

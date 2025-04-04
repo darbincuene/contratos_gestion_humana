@@ -19,6 +19,9 @@ use Illuminate\Http\Request;
 use ZipArchive;
 use Illuminate\Support\Facades\Auth;
 
+
+// jamas olvidaremos la forma en que nos recibieron en unicatolica los quiero mucho jajjajajj att:Darbin
+
 class archivosController extends Controller
 {
     public function carpetas()
@@ -383,13 +386,18 @@ class archivosController extends Controller
  
     public function docmentosfaltantes($id)
     {
-        $docsfaltantes = tipodocumento::whereDoesntHave('archivos')->get();
-        return view('archivos.anexos', compact('docsfaltantes'));
+        // $docsfaltantes = tipodocumento::whereDoesntHave('archivos')->get();
+        $docsfaltantes = tipoDocumento::whereDoesntHave('archivos', function ($query) use ($id) {
+            $query->where('subcarpeta_id', $id); // Filtrar por la subcarpeta
+        })->get();
+        // $docsfaltantes = tipodocumento::all();
+        
+        return view('archivos.anexos', compact('docsfaltantes','id'));
     }
     public function guardardocsfaltantes(Request $request){
         // dd($request);
         if ($request->hasFile('files')) {
-            foreach ($request->file('files') as $file) {
+            foreach ($request->file('files') as  $tipo_id => $file) {
                 $nombreArchivo = time() . '_' . $file->getClientOriginalName();
                 $tipoMime = $file->getClientMimeType();
 
@@ -397,18 +405,24 @@ class archivosController extends Controller
                 $archivo->nombre_archivo = $nombreArchivo;
                 $archivo->tipo_archivo = $tipoMime;
                 $archivo->ruta_archivo = $file->store('archivos'); 
-                $archivo->subcarpeta_id = '5';  //ID DE SBCARPETA MANUALMENTE
-                $archivo->tipo_documento_id = $request->documentos_ids;
+                $archivo->subcarpeta_id = $request->subcarpeta_id;  
+                $archivo->tipo_documento_id = $tipo_id;
+                // dd($archivo->toArray());
                 $archivo->save();
             }
         } else {
             return back()->with('error', 'No se subió ningún archivo.');
         }        
-        return response()->json([
-            'success' => true,
-            'message' => 'guardado con exito!!',
-        ]);
+        // return response()->json([
+        //     'success' => true,
+        //     'message' => 'guardado con exito!!',
+        // ]);
+        return view('welcome');
         
     }
     
 }
+
+
+// by:desarrollado por :Santiago conda ,
+//                     darbin cuene
