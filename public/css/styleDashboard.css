@@ -11,7 +11,7 @@
 .docente-btn {
     background-color: #ffffffad;;
     border: none;
-    color: #032840;
+    color: black;
     padding: 55px 60px;
     font-size: 16px;
     cursor: pointer;
@@ -30,13 +30,11 @@
 .filtrararchivos{
     text-decoration: none;
 }
-.docente-btn:hover {
-    background-color: #032840;
-}
+
 
 .docente-btn:hover .boton-texto {
     transition: opacity 0.3s ease;
-    color: #ffffff;
+    color: black;
 }
 
 

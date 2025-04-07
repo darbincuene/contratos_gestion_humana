@@ -27,8 +27,8 @@
             <table id="tb_carpetas" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Nombre de carpeta</th>
-                        <th>cargo</th>
+                        <th>Nombre de Carpeta</th>
+                        <th>Cargo</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>

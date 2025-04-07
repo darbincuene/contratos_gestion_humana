@@ -102,7 +102,7 @@
             </main>
         </div>
     </div>
-    <footer class="text-center py-5">
+    <footer class="text-center py-5 foterpadre">
 
         <p class="mb-2">
             Institución de Educación Superior sujeta a inspección y vigilancia por el Ministerio de Educación Nacional –

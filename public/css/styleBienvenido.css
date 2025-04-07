@@ -39,6 +39,11 @@
     
 }
 
+.foterpadre{
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="40" cy="40" r="20" fill="rgba(255,255,255,0.2)"/><circle cx="120" cy="90" r="35" fill="rgba(255,255,255,0.15)"/><circle cx="170" cy="50" r="25" fill="rgba(255,255,255,0.25)"/></svg>'),
+    linear-gradient(135deg, #15AEBF 0%, #032840 100%);
+}
+
   @media (max-width: 768px) {
     .headePadre {
       grid-template-columns: 1fr; 
