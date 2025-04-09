@@ -28,7 +28,7 @@
         <div class="contenedorinvisiblesubirarchivo">
             <div class="contenedor-principal">
 
-                <form id="uploadForm" action="{{route('guaradar.docsfaltantes')}}" method="POST"class="contenedor-formulario">
+                <form id="uploadForm" action="{{route('guaradar.docsfaltantes')}}" method="POST"class="contenedor-formulario" enctype="multipart/form-data">
                     @csrf
                     {{-- <input type="hidden" name="subcarpeta_id" value="{{ $subcarpetas->id }}"> --}}
                     <h5>Documentos Faltantes</h5>
@@ -39,7 +39,6 @@
                             <div class="labels input-group page-{{ intdiv($index, 5) }}" style="display: {{ $index < 5 ? 'block' : 'none' }};">
                                 <label class="titulo-input" for="files_{{ $tipo->id }}">{{ $tipo->nombre }}</label>
                                 <input type="file" name="files[{{ $tipo->id }}]" id="archivo_{{ $tipo->id }}">
-        
                                 <input type="hidden" name="subcarpeta_id" value="{{ $id }}">
         
                             </div>

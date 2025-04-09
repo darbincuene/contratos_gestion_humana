@@ -84,7 +84,7 @@ class archivosController extends Controller
         ]);
 
         $subcarpeta = subcarpeta::create([
-            'nombre' => 'historial laboral',
+            'nombre' => $request->nombre_carpeta,
             'carpeta_id' => $carpeta->id,
         ]);
 
@@ -280,6 +280,7 @@ class archivosController extends Controller
         }
         return view('welcome');
     }
+
     public function visualizarArchivo($id)
     {
         $archivo = archivo::findOrFail($id);

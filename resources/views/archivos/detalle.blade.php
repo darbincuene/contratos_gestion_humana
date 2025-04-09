@@ -17,18 +17,20 @@
 
 @extends('layouts.prueba')
 @section('content')
-<body style="background-image: url('{{ asset('storage/logos/FOTO2.png') }}'); background-repeat: no-repeat; background-size: cover; background-position: center; background-attachment: fixed;">
-   
+
+    <body
+        style="background-image: url('{{ asset('storage/logos/FOTO2.png') }}'); background-repeat: no-repeat; background-size: cover; background-position: center; background-attachment: fixed;">
+
         <div class="container-titulo">
             <p style="color: white; font-size:30px">
                 Historial laboral de: {{ $datos->subcarpeta->carpeta->nombre ?? 'Sin nombre' }}
             </p>
         </div>
 
-        <div style="background: rgba(255, 255, 255, 0.76); font-weight: bold; border-radius:10px; padding:10px; ">
+        <div style="background: rgba(255, 255, 255, 0.76); font-weight: bold; border-radius:10px; padding:10px; heigth:100%; ">
 
 
-            <table id="tb_carpetas" class="table table-striped table-bordered" style="width:100%">
+            <table id="tb_carpetas" class="table table-striped table-bordered">
                 <thead>
                     <tr>
                         <th>Nombre Archivo</th>
@@ -43,9 +45,13 @@
                                 <a href="{{ route('descargar.archivos', $item->id) }}">
                                     <i class="fa-solid fa-cloud-arrow-down" title="Descargar Archivo"></i>
                                 </a>
-                                <a>
+                                {{-- <a>
                                     <i class="fa-solid fa-eye fa-lg text-primary"
                                         onclick="previsualizarArchivo({{ $item->id }})" title="Ver archivo"
+                                        aria-hidden="true"></i>
+                                </a> --}}
+                                <a href="{{ asset('storage/' . $item->ruta_archivo) }}" target="_blank">
+                                    <i class="fa-solid fa-eye fa-lg text-primary" title="Ver archivo"
                                         aria-hidden="true"></i>
                                 </a>
                                 <form action="{{ route('delete.archivo', $item->id) }}" method="POST"
@@ -67,8 +73,8 @@
 
 
         </div>
-   
-</body>
+
+    </body>
 @endsection
 
 </html>

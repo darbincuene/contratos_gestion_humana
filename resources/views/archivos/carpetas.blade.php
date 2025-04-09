@@ -18,13 +18,13 @@
 <body style="background-image: url('{{ asset('storage/logos/FOTO2.png') }}')">
     @extends('layouts.prueba')
     @section('content')
+    <div style="min-height:80vh">
         <div class="container-titulo">
             <h1 class="titulocarpetas">Auditora</h1>
         </div>
 
-        <div
-            style="background: rgba(255, 255, 255, 0.76); font-weight: bold; border-radius:10px; padding:10px; margin-bottom:60px">
-            <table id="tb_carpetas" class="table table-striped table-bordered" style="width:100%">
+        <div style="background: rgba(255, 255, 255, 0.76); font-weight: bold; border-radius:10px; padding:10px; ">
+            <table id="tb_carpetas" class="table table-striped table-bordered" style="width:100%; heigth:100%">
                 <thead>
                     <tr>
                         <th>Nombre de Carpeta</th>
@@ -66,9 +66,17 @@
                 </tbody>
             </table>
         </div>
+    </div>
     @endsection
 </body>
-
+<script>$(document).ready(function() {
+    $('#tb_carpetas').DataTable({
+        "scrollY": "400px",
+        "scrollCollapse": true,
+        "paging": true
+    });
+});
+</script>
 
 </html>
 <!-- Scripts de DataTables -->

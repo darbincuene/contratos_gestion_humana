@@ -42,6 +42,10 @@
 .foterpadre{
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="40" cy="40" r="20" fill="rgba(255,255,255,0.2)"/><circle cx="120" cy="90" r="35" fill="rgba(255,255,255,0.15)"/><circle cx="170" cy="50" r="25" fill="rgba(255,255,255,0.25)"/></svg>'),
     linear-gradient(135deg, #15AEBF 0%, #032840 100%);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
 }
 
   @media (max-width: 768px) {
@@ -166,14 +170,29 @@ footer {
   background-position: center; 
   width: 100%;
   height: 100vh;  
-
-  /* Aplicar el filtro de desenfoque */
-  /* filter: blur(5px); */
 }
-html{
+html, body{
   height: 100%;
   margin: 0;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  
+  display: flex;
+    flex-direction: column;
 
+}
+
+main{
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 20px;
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+}
+
+main::-webkit-scrollbar {
+  display: none;
+}
+.container-fluid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }

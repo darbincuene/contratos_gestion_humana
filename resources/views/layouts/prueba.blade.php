@@ -97,7 +97,7 @@
             </nav>
 
             <!-- Contenido principal -->
-            <main class="col-12 col-md-9 mt-4" style="height: 100vh">
+            <main class="col-12 col-md-9 mt-4" style="height: 100vh;">
                 @yield('content')
             </main>
         </div>

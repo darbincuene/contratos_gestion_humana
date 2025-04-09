@@ -25,7 +25,7 @@
 
 
             <div style="background: rgba(255, 255, 255, 0.76); font-weight: bold; border-radius:10px; padding:10px">
-                <table id="tb_filtro" class="table table-striped table-bordered" style="width:100%">
+                <table id="tb_filtro" class="table table-striped table-bordered" >
                     <thead>
                         <tr>
                             <th>Nombre de carpeta</th>
